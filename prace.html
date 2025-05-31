@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прайс-лист | Чистка колодцев</title>
+    <!-- Стили остаются теми же -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ВСЕ СТИЛИ ИЗ INDEX.HTML */
+        /* ... */
+        
+        /* Дополнительные стили для прайса */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background: rgba(30, 91, 142, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .pricing-table th {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            padding: 20px;
+            text-align: left;
+            font-size: 1.2rem;
+        }
+        
+        .pricing-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(78, 205, 196, 0.2);
+        }
+        
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pricing-table tr:hover {
+            background: rgba(78, 205, 196, 0.1);
+        }
+        
+        .price-value {
+            color: var(--accent-secondary-light);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .price-note {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка (такая же как в index.html) -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-faucet"></i>
+                    <span>Чистый Источник</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="price.html" class="active">Прайс</a></li>
+                    <li><a href="index.html#about">О нас</a></li>
+                    <li><a href="index.html#contact">Контакты</a></li>
+                </ul>
+                <a href="index.html#contact" class="contact-btn">Заказать</a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Секция с прайсом -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши Цены</h2>
+                <p>Прозрачное ценообразование без скрытых платежей</p>
+            </div>
+            
+            <div class="pricing-container">
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Услуга</th>
+                            <th>Описание</th>
+                            <th>Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Чистка колодца</td>
+                            <td>Полная очистка от ила и мусора</td>
+                            <td class="price-value">от 8 000 ₽</td>
+                        </tr>
+                        <tr>
+                            <td>Глубокая чистка</td>
+                            <td>Чистка + дезинфекция + промывка</td>
+                            <td class="price-value">от 12 000 ₽</td>
+                        </tr>
+                        <tr>
+                            <td>Ремонт колец</td>
+                            <td>Устранение трещин и смещений</td>
+                            <td class="price-value">от 6 000 ₽</td>
+                        </tr>
+                        <tr>
+                            <td>Скобирование колец</td>
+                            <td>Укрепление бетонных колец</td>
+                            <td class="price-value">от 1 500 ₽/кольцо</td>
+                        </tr>
+                        <tr>
+                            <td>Гидропломба швов</td>
+                            <td>Герметизация швов между кольцами</td>
+                            <td class="price-value">от 800 ₽/шов</td>
+                        </tr>
+                        <tr>
+                            <td>Замена насоса</td>
+                            <td>Демонтаж старого и установка нового насоса</td>
+                            <td class="price-value">от 5 000 ₽</td>
+                        </tr>
+                        <tr>
+                            <td>Устранение запаха</td>
+                            <td>Комплексная обработка от сероводорода</td>
+                            <td class="price-value">от 7 000 ₽</td>
+                        </tr>
+                        <tr>
+                            <td>Консультация</td>
+                            <td>Выезд специалиста для оценки работ</td>
+                            <td class="price-value">Бесплатно</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="price-note">
+                    <h3>Важно!</h3>
+                    <p>Окончательная стоимость рассчитывается индивидуально после осмотра колодца и зависит от:</p>
+                    <ul>
+                        <li>Глубины колодца</li>
+                        <li>Степени загрязнения</li>
+                        <li>Необходимости дополнительных работ</li>
+                        <li>Удаленности объекта</li>
+                    </ul>
+                    <p>Все цены указаны с учетом материалов. Гарантия на работы - 1 год.</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="index.html#contact" class="btn primary-btn">Заказать расчет</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер (такой же как в index.html) -->
+    <footer>
+        <!-- ... -->
+    </footer>
+
+    <script>
+        // Тот же скрипт что и в index.html
+    </script>
+</body>
+</html>
