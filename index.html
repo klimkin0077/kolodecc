@@ -1,0 +1,1303 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чистый Источник | Профессиональная чистка колодцев</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0a3d62;
+            --primary: #1e5b8e;
+            --primary-light: #2d7cb5;
+            --accent: #ff6b6b;
+            --accent-light: #ff8e8e;
+            --accent-secondary: #4ecdc4;
+            --accent-secondary-light: #6de5dd;
+            --dark: #0c1e2c;
+            --light: #ecf0f1;
+            --text: #333;
+            --text-light: #f5f5f5;
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-light));
+            --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-light));
+            --gradient-secondary: linear-gradient(135deg, var(--accent-secondary), var(--accent-secondary-light));
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: var(--dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(30, 91, 142, 0.15) 0%, rgba(30, 91, 142, 0) 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.15) 0%, rgba(255, 107, 107, 0) 20%);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: rgba(10, 61, 98, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-secondary-light);
+            display: flex;
+            align-items: center;
+            text-shadow: 0 0 15px rgba(78, 205, 196, 0.5);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--light);
+            animation: pulse 2s infinite;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-secondary-light);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--accent-secondary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .contact-btn {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-accent);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
+        }
+        
+        .contact-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--light);
+            transition: var(--transition);
+        }
+        
+        .mobile-menu:hover {
+            color: var(--accent-secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: 
+                linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), 
+                url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .water-animation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: url('https://i.imgur.com/nGqoZJ1.png') repeat-x;
+            background-size: contain;
+            animation: waterFlow 20s linear infinite;
+            opacity: 0.7;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to right, var(--accent-secondary-light), var(--light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-align: center;
+            min-width: 200px;
+        }
+        
+        .primary-btn {
+            background: var(--gradient-accent);
+            color: var(--text-light);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+        
+        .primary-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-secondary);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .primary-btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.6);
+        }
+        
+        .primary-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .secondary-btn {
+            background: transparent;
+            border: 3px solid var(--accent-secondary-light);
+            color: var(--accent-secondary-light);
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+        }
+        
+        .secondary-btn:hover {
+            background: rgba(78, 205, 196, 0.15);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(78, 205, 196, 0.4);
+        }
+        
+        /* Services Section */
+        .section {
+            padding: 120px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--accent-secondary-light);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+            text-shadow: 0 0 15px rgba(78, 205, 196, 0.4);
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background: var(--accent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: rgba(30, 91, 142, 0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(0);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.1) 0%, transparent 70%);
+            transform: rotate(30deg);
+            transition: var(--transition);
+            opacity: 0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            background: rgba(30, 91, 142, 0.35);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(78, 205, 196, 0.4);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--accent-secondary);
+            margin-bottom: 25px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: var(--accent-light);
+            text-shadow: 0 0 20px rgba(255, 142, 142, 0.6);
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-secondary-light);
+        }
+        
+        .service-card p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .highlight {
+            color: var(--accent-light);
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+        
+        /* About Section */
+        .about {
+            background: linear-gradient(to bottom, var(--dark), var(--primary-dark));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .water-drops {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('mgur.comhttps://i.i/7yQ7y0c.png');
+            opacity: 0.1;
+            pointer-events: none;
+            animation: drops 20s linear infinite;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: var(--accent-light);
+            text-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .benefits {
+            margin-top: 40px;
+        }
+        
+        .benefit {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background: rgba(30, 91, 142, 0.2);
+            border-radius: 15px;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+        
+        .benefit:hover {
+            background: rgba(30, 91, 142, 0.35);
+            transform: translateX(10px);
+        }
+        
+        .benefit i {
+            color: var(--accent-secondary);
+            font-size: 2rem;
+            margin-right: 20px;
+            min-width: 40px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .benefit:hover i {
+            transform: scale(1.3) rotate(10deg);
+            color: var(--accent-light);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: var(--gradient-primary);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item {
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover .stat-number {
+            transform: scale(1.1);
+            color: var(--accent-secondary-light);
+        }
+        
+        .stat-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--light);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(to bottom, var(--primary-dark), var(--dark));
+            position: relative;
+        }
+        
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/1Vx5p0x.png');
+            opacity: 0.15;
+            pointer-events: none;
+            animation: bubbles 30s linear infinite;
+        }
+        
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(30, 91, 142, 0.2);
+            border-radius: 15px;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+        
+        .contact-item:hover {
+            background: rgba(30, 91, 142, 0.35);
+            transform: translateY(-10px);
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--accent-secondary);
+            min-width: 50px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover .contact-icon {
+            color: var(--accent-light);
+            transform: scale(1.3);
+        }
+        
+        .contact-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-secondary-light);
+        }
+        
+        .contact-form {
+            background: rgba(30, 91, 142, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--accent-secondary-light);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            background: rgba(10, 61, 98, 0.4);
+            color: var(--light);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-secondary);
+            background: rgba(10, 61, 98, 0.6);
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234ecdc4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+        
+        .submit-btn {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(78, 205, 196, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-accent);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(78, 205, 196, 0.6);
+        }
+        
+        .submit-btn:hover::before {
+            opacity: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            padding: 70px 0 30px;
+            position: relative;
+        }
+        
+        .wave-footer {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('https://i.imgur.com/8y0yJ3h.png');
+            background-size: 1000px 100px;
+        }
+        
+        .wave-footer.wave1 {
+            animation: wave 30s linear infinite;
+            z-index: 1000;
+            opacity: 1;
+        }
+        
+        .wave-footer.wave2 {
+            animation: wave2 15s linear infinite;
+            opacity: 0.5;
+            animation-delay: -5s;
+            top: -80px;
+        }
+        
+        .wave-footer.wave3 {
+            animation: wave 30s linear infinite;
+            opacity: 0.2;
+            animation-delay: -2s;
+            top: -60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--accent-secondary-light);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--accent);
+            bottom: -8px;
+            left: 0;
+            border-radius: 3px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a i {
+            color: var(--accent-secondary);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-light);
+            opacity: 1;
+            transform: translateX(5px);
+        }
+        
+        .footer-links a:hover i {
+            color: var(--accent-light);
+            transform: scale(1.3);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background: var(--gradient-accent);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            opacity: 0.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Animations */
+        @keyframes waterFlow {
+            0% { background-position: 0 0; }
+            100% { background-position: 1000px 0; }
+        }
+        
+        @keyframes drops {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 1000px; }
+        }
+        
+        @keyframes bubbles {
+            0% { background-position: 0 0; }
+            100% { background-position: 1000px 1000px; }
+        }
+        
+        @keyframes wave {
+            0% { background-position-x: 0; }
+            100% { background-position-x: 1000px; }
+        }
+        
+        @keyframes wave2 {
+            0% { background-position-x: 0; }
+            100% { background-position-x: -1000px; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                background: var(--primary-dark);
+                width: 100%;
+                height: calc(100vh - 80px);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 60px;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 25px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .service-card {
+                padding: 30px 20px;
+            }
+        }
+        
+        /* Animation Effects */
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-faucet"></i>
+                    <span>Чистый Источник</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#stats">Цифры</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+                <a href="#contact" class="contact-btn">Заказать</a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="water-animation"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate">Чистота вашего колодца - наша профессия!</h1>
+                <p class="animate delay-1">Вернем кристальную чистоту вашей воде с гарантией качества и использованием современных технологий</p>
+                <div class="hero-btns">
+                    <a href="#services" class="btn primary-btn animate delay-2">Наши услуги</a>
+                    <a href="#contact" class="btn secondary-btn animate delay-3">Заказать звонок</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши Услуги</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-water"></i>
+                    </div>
+                    <h3>Глубокая чистка колодцев</h3>
+                    <p>Полная очистка от ила, песка, мусора и бактерий. Восстановление качества питьевой воды до санитарных норм.</p>
+                </div>
+                
+                <div class="service-card animate delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Ремонт колодцев</h3>
+                    <p>Устранение трещин, смещений колец, восстановление герметичности швов и укрепление конструкции.</p>
+                </div>
+                
+                <div class="service-card animate delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>Устранение запаха</h3>
+                    <p>Эффективное удаление сероводорода и других неприятных запахов, дезинфекция колодца.</p>
+                </div>
+                
+                <div class="service-card animate delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Скобирование колец</h3>
+                    <p>Скрепление бетонных колец металлическими скобами для предотвращения смещения и деформации.</p>
+                </div>
+                
+                <div class="service-card animate delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3>Гидропломба швов</h3>
+                    <p>Герметизация швов между кольцами специальными <span class="highlight">гидроизоляционными составами</span>.</p>
+                </div>
+                
+                <div class="service-card animate delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-tint-slash"></i>
+                    </div>
+                    <h3>Замена насосов</h3>
+                    <p>Установка, замена и ремонт насосного оборудования <span class="highlight">любой сложности</span>.</p>
+                </div>
+            </div>
+        </div>
+     <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="water-drops"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Почему выбирают нас</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Эксперты в чистоте воды с 2010 года</h2>
+                    <p>Мы специализируемся на чистке и ремонте колодцев более 12 лет. Наша команда мастеров имеет все необходимые сертификаты и использует только профессиональное оборудование.</p>
+                    <p>Мы понимаем, что чистая вода - это основа здоровья вашей семьи, поэтому подходим к каждому проекту с максимальной ответственностью.</p>
+                    
+                    <div class="benefits">
+                        <div class="benefit">
+                            <i class="fas fa-bolt"></i>
+                            <div><strong>Срочный выезд</strong> - в течение 24 часов по Москве и области</div>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-leaf"></i>
+                            <div><strong>Экологичные материалы</strong> - безопасные для здоровья и природы</div>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-shield-alt"></i>
+                            <div><strong>Гарантия до 3 лет</strong> на все виды работ</div>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-flask"></i>
+                            <div><strong>Бесплатный анализ воды</strong> после чистки</div>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-award"></i>
+                            <div><strong>Профессиональное оборудование</strong> европейского качества</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-text">Лет опыта</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2500+</div>
+                    <div class="stat-text">Очищенных колодцев</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-text">Довольных клиентов</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-text">Поддержка клиентов</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="bubbles"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Свяжитесь с нами</h2>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Телефон</h3>
+                            <p>+7 (999) 123-45-67</p>
+                            <p>+7 (495) 765-43-21</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>info@chistiy-istochnik.ru</p>
+                            <p>zakaz@chistiy-istochnik.ru</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Адрес</h3>
+                            <p>г. Москва, ул. Колодезная, д. 15</p>
+                            <p>БЦ "Чистая Вода", офис 305</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Часы работы</h3>
+                            <p>Пн-Пт: 8:00 - 20:00</p>
+                            <p>Сб-Вс: 9:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" required placeholder="Иван Иванов">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" required placeholder="+7 (999) 999-99-99">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Услуга</label>
+                            <select id="service" required>
+                                <option value="">Выберите услугу</option>
+                                <option value="cleaning">Чистка колодца</option>
+                                <option value="repair">Ремонт колодца</option>
+                                <option value="smell">Устранение запаха</option>
+                                <option value="pump">Замена насоса</option>
+                                <option value="other">Другая услуга</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" placeholder="Опишите проблему с вашим колодцем..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="wave-footer wave1"></div>
+        <div class="wave-footer wave2"></div>
+        <div class="wave-footer wave3"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <i class="fas fa-faucet"></i>
+                        <span>Чистый Источник</span>
+                    </div>
+                    <p>Профессиональное обслуживание колодцев с гарантией качества. Вернем вашей воде кристальную чистоту!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Наши услуги</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Чистка колодцев</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Ремонт колодцев</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Устранение запаха</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Скобирование колец</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Замена насосов</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <ul class="footer-links">
+                        <li><a href="#hero"><i class="fas fa-chevron-right"></i> Главная</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Услуги</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> О нас</a></li>
+                        <li><a href="#stats"><i class="fas fa-chevron-right"></i> Цифры</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+79991234567"><i class="fas fa-phone"></i> +7 (981) 666-66-70</a></li>
+                        <li><a href="mailto:info@chistiy-istochnik.ru"><i class="fas fa-envelope"></i> onemetal@ya.ru</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Новый Арбат, д. 15</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Пн-Пт: 8:00 - 20:00</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Чистый Источник. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const menuIcon = mobileMenu.querySelector('i');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navLinks.classList.remove('active');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            
+            // Show success message
+            alert(`Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время для уточнения деталей по услуге "${service}".`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Water animation in hero
+        const water = document.querySelector('.water-animation');
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            water.style.backgroundPosition = `${scrollPosition * 0.5}px 0`;
+        });
+    </script>
+</body>
+</html>
