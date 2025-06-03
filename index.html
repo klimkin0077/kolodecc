@@ -51,7 +51,7 @@
             padding: 0 15px;
         }
         
-        /* Header Styles */
+        /* Modern Header Styles */
         header {
             background: rgba(10, 61, 98, 0.95);
             position: fixed;
@@ -60,13 +60,14 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(78, 205, 196, 0.3);
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
         
         .logo {
@@ -75,13 +76,11 @@
             color: var(--accent-secondary-light);
             display: flex;
             align-items: center;
-            text-shadow: 0 0 15px rgba(78, 205, 196, 0.5);
         }
         
         .logo i {
             margin-right: 10px;
             color: var(--light);
-            animation: pulse 2s infinite;
         }
         
         .nav-links {
@@ -91,6 +90,7 @@
         
         .nav-links li {
             margin-left: 30px;
+            position: relative;
         }
         
         .nav-links a {
@@ -100,6 +100,7 @@
             transition: var(--transition);
             position: relative;
             font-size: 1.1rem;
+            padding: 8px 0;
         }
         
         .nav-links a:hover {
@@ -110,9 +111,9 @@
             content: '';
             position: absolute;
             width: 0;
-            height: 3px;
+            height: 2px;
             background: var(--accent-secondary);
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             transition: var(--transition);
         }
@@ -133,31 +134,12 @@
             text-decoration: none;
             display: inline-block;
             box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .contact-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-accent);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: -1;
         }
         
         .contact-btn:hover {
-            transform: translateY(-5px);
+            background: var(--gradient-accent);
+            color: var(--light);
             box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
-        }
-        
-        .contact-btn:hover::before {
-            opacity: 1;
         }
         
         .mobile-menu {
@@ -183,19 +165,6 @@
             text-align: center;
             padding-top: 80px;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .water-animation {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%230a3d62"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%230a3d62"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%230a3d62"/></svg>');
-            background-size: 1000px 100%;
-            animation: waterFlow 20s linear infinite;
-            opacity: 0.7;
         }
         
         .hero-content {
@@ -209,7 +178,6 @@
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 25px;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
             background: linear-gradient(to right, var(--accent-secondary-light), var(--light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -254,46 +222,26 @@
             box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
         }
         
-        .primary-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-secondary);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: -1;
-        }
-        
         .primary-btn:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.6);
-        }
-        
-        .primary-btn:hover::before {
-            opacity: 1;
+            background: var(--gradient-secondary);
+            color: var(--dark);
         }
         
         .secondary-btn {
             background: transparent;
             border: 3px solid var(--accent-secondary-light);
             color: var(--accent-secondary-light);
-            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
         }
         
         .secondary-btn:hover {
-            background: rgba(78, 205, 196, 0.15);
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(78, 205, 196, 0.4);
+            background: var(--accent-secondary-light);
+            color: var(--dark);
         }
         
         /* Services Section */
         .section {
             padding: 120px 0;
             position: relative;
-            overflow: hidden;
         }
         
         .section-title {
@@ -309,7 +257,6 @@
             display: inline-block;
             position: relative;
             padding-bottom: 15px;
-            text-shadow: 0 0 15px rgba(78, 205, 196, 0.4);
         }
         
         .section-title h2::after {
@@ -341,33 +288,11 @@
             box-shadow: var(--shadow);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(78, 205, 196, 0.2);
-            position: relative;
-            overflow: hidden;
-            transform: translateY(0);
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(78, 205, 196, 0.1) 0%, transparent 70%);
-            transform: rotate(30deg);
-            transition: var(--transition);
-            opacity: 0;
         }
         
         .service-card:hover {
-            transform: translateY(-15px);
             background: rgba(30, 91, 142, 0.35);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             border-color: rgba(78, 205, 196, 0.4);
-        }
-        
-        .service-card:hover::before {
-            opacity: 1;
         }
         
         .service-icon {
@@ -379,9 +304,7 @@
         }
         
         .service-card:hover .service-icon {
-            transform: scale(1.2) rotate(10deg);
             color: var(--accent-light);
-            text-shadow: 0 0 20px rgba(255, 142, 142, 0.6);
         }
         
         .service-card h3 {
@@ -398,26 +321,12 @@
         .highlight {
             color: var(--accent-light);
             font-weight: 600;
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
         }
         
         /* About Section */
         .about {
             background: linear-gradient(to bottom, var(--dark), var(--primary-dark));
             position: relative;
-            overflow: hidden;
-        }
-        
-        .water-drops {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1.5" fill="rgba(78,205,196,0.1)"/><circle cx="30" cy="30" r="1" fill="rgba(78,205,196,0.1)"/><circle cx="50" cy="20" r="1.2" fill="rgba(78,205,196,0.1)"/><circle cx="70" cy="40" r="0.8" fill="rgba(78,205,196,0.1)"/><circle cx="90" cy="60" r="1.3" fill="rgba(78,205,196,0.1)"/></svg>');
-            opacity: 0.1;
-            pointer-events: none;
-            animation: drops 20s linear infinite;
         }
         
         .about-content {
@@ -436,7 +345,6 @@
             font-size: 2.8rem;
             margin-bottom: 30px;
             color: var(--accent-light);
-            text-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
         }
         
         .benefits {
@@ -456,7 +364,6 @@
         
         .benefit:hover {
             background: rgba(30, 91, 142, 0.35);
-            transform: translateX(10px);
         }
         
         .benefit i {
@@ -469,7 +376,6 @@
         }
         
         .benefit:hover i {
-            transform: scale(1.3) rotate(10deg);
             color: var(--accent-light);
         }
         
@@ -495,13 +401,6 @@
             font-weight: 800;
             margin-bottom: 15px;
             color: var(--gold);
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-            transition: var(--transition);
-        }
-        
-        .stat-item:hover .stat-number {
-            transform: scale(1.1);
-            color: var(--accent-secondary-light);
         }
         
         .stat-text {
@@ -514,18 +413,6 @@
         .contact {
             background: linear-gradient(to bottom, var(--primary-dark), var(--dark));
             position: relative;
-        }
-        
-        .bubbles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="15" cy="15" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="30" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="20" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="85" cy="40" r="2.5" fill="rgba(255,255,255,0.1)"/></svg>');
-            opacity: 0.15;
-            pointer-events: none;
-            animation: bubbles 30s linear infinite;
         }
         
         .contact-wrapper {
@@ -553,7 +440,6 @@
         
         .contact-item:hover {
             background: rgba(30, 91, 142, 0.35);
-            transform: translateY(-10px);
         }
         
         .contact-icon {
@@ -566,7 +452,6 @@
         
         .contact-item:hover .contact-icon {
             color: var(--accent-light);
-            transform: scale(1.3);
         }
         
         .contact-text h3 {
@@ -642,31 +527,11 @@
             transition: var(--transition);
             width: 100%;
             box-shadow: 0 10px 25px rgba(78, 205, 196, 0.4);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-accent);
-            opacity: 0;
-            transition: var(--transition);
-            z-index: -1;
         }
         
         .submit-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(78, 205, 196, 0.6);
-        }
-        
-        .submit-btn:hover::before {
-            opacity: 1;
+            background: var(--gradient-accent);
+            color: var(--light);
         }
         
         /* Footer */
@@ -674,36 +539,6 @@
             background: var(--primary-dark);
             padding: 70px 0 30px;
             position: relative;
-        }
-        
-        .wave-footer {
-            position: absolute;
-            top: -100px;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%230a3d62"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%230a3d62"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%230a3d62"/></svg>');
-            background-size: 1000px 100px;
-        }
-        
-        .wave-footer.wave1 {
-            animation: wave 30s linear infinite;
-            z-index: 1000;
-            opacity: 1;
-        }
-        
-        .wave-footer.wave2 {
-            animation: wave2 15s linear infinite;
-            opacity: 0.5;
-            animation-delay: -5s;
-            top: -80px;
-        }
-        
-        .wave-footer.wave3 {
-            animation: wave 30s linear infinite;
-            opacity: 0.2;
-            animation-delay: -2s;
-            top: -60px;
         }
         
         .footer-content {
@@ -760,12 +595,6 @@
         .footer-links a:hover {
             color: var(--accent-light);
             opacity: 1;
-            transform: translateX(5px);
-        }
-        
-        .footer-links a:hover i {
-            color: var(--accent-light);
-            transform: scale(1.3);
         }
         
         .social-links {
@@ -789,9 +618,8 @@
         }
         
         .social-links a:hover {
-            transform: translateY(-5px);
             background: var(--gradient-accent);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+            color: var(--light);
         }
         
         .copyright {
@@ -803,97 +631,23 @@
             z-index: 2;
         }
         
-        /* Floating Animations */
-        .floating-texts {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 1;
+        /* Animation Effects */
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         
-        .floating-text {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.03);
-            font-size: 4rem;
-            font-weight: 800;
-            animation: floatText 20s linear infinite;
-            pointer-events: none;
-            user-select: none;
-            text-transform: uppercase;
-            white-space: nowrap;
+        .animate.active {
+            opacity: 1;
+            transform: translateY(0);
         }
         
-        .floating-icons {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .floating-icon {
-            position: absolute;
-            color: rgba(78, 205, 196, 0.1);
-            font-size: 3rem;
-            animation: floatIcon 25s linear infinite;
-            opacity: 0.7;
-        }
-        
-        /* Animations */
-        @keyframes waterFlow {
-            0% { background-position: 0 0; }
-            100% { background-position: 1000px 0; }
-        }
-        
-        @keyframes drops {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 1000px; }
-        }
-        
-        @keyframes bubbles {
-            0% { background-position: 0 0; }
-            100% { background-position: 1000px 1000px; }
-        }
-        
-        @keyframes wave {
-            0% { background-position-x: 0; }
-            100% { background-position-x: 1000px; }
-        }
-        
-        @keyframes wave2 {
-            0% { background-position-x: 0; }
-            100% { background-position-x: -1000px; }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes floatText {
-            0% {
-                transform: translate(100vw, 100vh) rotate(0deg);
-            }
-            100% {
-                transform: translate(-20vw, -20vh) rotate(25deg);
-            }
-        }
-        
-        @keyframes floatIcon {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            100% {
-                transform: translate(100vw, -100vh) rotate(360deg);
-            }
-        }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
         
         /* Mobile Responsiveness */
         @media (max-width: 992px) {
@@ -957,10 +711,6 @@
             .contact-wrapper {
                 gap: 30px;
             }
-            
-            .floating-text {
-                font-size: 3rem;
-            }
         }
         
         @media (max-width: 480px) {
@@ -987,33 +737,11 @@
             .contact-form {
                 padding: 25px;
             }
-            
-            .floating-text {
-                font-size: 2rem;
-            }
         }
-        
-        /* Animation Effects */
-        .animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .animate.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-        .delay-4 { transition-delay: 0.4s; }
-        .delay-5 { transition-delay: 0.5s; }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Modern Header -->
     <header>
         <div class="container">
             <nav>
@@ -1039,24 +767,6 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="water-animation"></div>
-        
-        <!-- Floating Texts -->
-        <div class="floating-texts">
-            <div class="floating-text" style="top: 10%; left: 5%; animation-delay: 0s;">Чистота</div>
-            <div class="floating-text" style="top: 30%; left: 80%; animation-delay: -5s; animation-duration: 25s;">Колодец</div>
-            <div class="floating-text" style="top: 70%; left: 20%; animation-delay: -10s; animation-duration: 22s;">Вода</div>
-            <div class="floating-text" style="top: 50%; left: 60%; animation-delay: -15s;">Здоровье</div>
-        </div>
-        
-        <!-- Floating Icons -->
-        <div class="floating-icons">
-            <div class="floating-icon" style="top: 15%; left: 15%; animation-delay: 0s;"><i class="fas fa-hand-holding-water"></i></div>
-            <div class="floating-icon" style="top: 25%; left: 85%; animation-delay: -8s; animation-duration: 30s;"><i class="fas fa-tools"></i></div>
-            <div class="floating-icon" style="top: 65%; left: 10%; animation-delay: -12s;"><i class="fas fa-wind"></i></div>
-            <div class="floating-icon" style="top: 75%; left: 90%; animation-delay: -18s; animation-duration: 28s;"><i class="fas fa-tint"></i></div>
-        </div>
-        
         <div class="container">
             <div class="hero-content">
                 <h1 class="animate">Чистота вашего колодца - наша профессия!</h1>
@@ -1071,18 +781,6 @@
 
     <!-- Services Section -->
     <section class="section" id="services">
-        <!-- Urgent Order Animation -->
-        <div class="urgent-order animate delay-4" style="position: absolute; top: 50px; right: 50px; background: var(--gradient-accent); padding: 15px 25px; border-radius: 50px; font-weight: 700; box-shadow: 0 10px 30px rgba(255,107,107,0.5); z-index: 3; transform: rotate(5deg); animation: pulse 2s infinite;">
-            <i class="fas fa-bolt"></i> Срочный выезд за 60 минут!
-        </div>
-        
-        <!-- Floating Icons -->
-        <div class="floating-icons">
-            <div class="floating-icon" style="top: 20%; left: 5%; animation-delay: 0s;"><i class="fas fa-pump-soap"></i></div>
-            <div class="floating-icon" style="top: 40%; left: 95%; animation-delay: -7s;"><i class="fas fa-filter"></i></div>
-            <div class="floating-icon" style="top: 70%; left: 10%; animation-delay: -14s;"><i class="fas fa-wrench"></i></div>
-        </div>
-        
         <div class="container">
             <div class="section-title">
                 <h2>Наши Услуги</h2>
@@ -1136,8 +834,6 @@
                     <p>Установка, замена и ремонт насосного оборудования <span class="highlight">любой сложности</span>.</p>
                 </div>
             </div>
-                </a>
-            </div>
         </div>
     </section>
 
@@ -1181,15 +877,6 @@
 
     <!-- About Section -->
     <section class="section about" id="about">
-        <div class="water-drops"></div>
-        
-        <!-- Floating Texts -->
-        <div class="floating-texts">
-            <div class="floating-text" style="top: 20%; left: 5%; animation-delay: 0s; animation-duration: 25s;">Качество</div>
-            <div class="floating-text" style="top: 40%; left: 75%; animation-delay: -8s;">Гарантия</div>
-            <div class="floating-text" style="top: 70%; left: 15%; animation-delay: -15s;">Профессионализм</div>
-        </div>
-        
         <div class="container">
             <div class="section-title">
                 <h2>Почему выбирают нас</h2>
@@ -1253,15 +940,6 @@
 
     <!-- Contact Section -->
     <section class="section contact" id="contact">
-        <div class="bubbles"></div>
-        
-        <!-- Floating Texts -->
-        <div class="floating-texts">
-            <div class="floating-text" style="top: 10%; left: 5%; animation-delay: 0s;">Звоните</div>
-            <div class="floating-text" style="top: 30%; left: 80%; animation-delay: -7s;">Пишите</div>
-            <div class="floating-text" style="top: 70%; left: 20%; animation-delay: -14s;">Заказывайте</div>
-        </div>
-        
         <div class="container">
             <div class="section-title">
                 <h2>Свяжитесь с нами</h2>
@@ -1347,9 +1025,6 @@
 
     <!-- Footer -->
     <footer>
-        <div class="wave-footer wave1"></div>
-        <div class="wave-footer wave2"></div>
-        <div class="wave-footer wave3"></div>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
@@ -1470,37 +1145,6 @@
         document.querySelectorAll('.animate').forEach(el => {
             observer.observe(el);
         });
-        
-        // Water animation in hero
-        const water = document.querySelector('.water-animation');
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            water.style.backgroundPosition = `${scrollPosition * 0.5}px 0`;
-        });
-        
-        // Floating elements generator
-        function createFloatingElements() {
-            const sections = document.querySelectorAll('.section, .hero');
-            sections.forEach(section => {
-                const floatingTexts = section.querySelector('.floating-texts');
-                if (!floatingTexts) return;
-                
-                const texts = ['Чистота', 'Вода', 'Здоровье', 'Колодец', 'Источник', 'Качество', 'Профессионализм'];
-                for (let i = 0; i < 5; i++) {
-                    const text = document.createElement('div');
-                    text.className = 'floating-text';
-                    text.textContent = texts[Math.floor(Math.random() * texts.length)];
-                    text.style.top = `${Math.random() * 100}%`;
-                    text.style.left = `${Math.random() * 100}%`;
-                    text.style.animationDelay = `-${Math.random() * 20}s`;
-                    text.style.animationDuration = `${15 + Math.random() * 15}s`;
-                    floatingTexts.appendChild(text);
-                }
-            });
-        }
-        
-        // Initialize animations
-        window.addEventListener('load', createFloatingElements);
     </script>
 </body>
 </html>
