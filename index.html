@@ -61,9 +61,6 @@
             transition: var(--transition);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(78, 205, 196, 0.3);
-            min-height: 80px;
-            display: flex;
-            align-items: center;
         }
         
         nav {
@@ -71,7 +68,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
-            width: 100%;
         }
         
         .logo {
@@ -109,6 +105,20 @@
         
         .nav-links a:hover {
             color: var(--accent-secondary-light);
+        }
+        
+        .nav-links a.active {
+            color: var(--accent-secondary-light);
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-secondary);
+            bottom: 0;
+            left: 0;
         }
         
         .nav-links a::after {
@@ -325,6 +335,17 @@
         .highlight {
             color: var(--accent-light);
             font-weight: 600;
+        }
+        
+        /* Price Section */
+        .price-section {
+            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+            padding: 100px 0;
+        }
+        
+        .price-cta {
+            text-align: center;
+            margin-top: 40px;
         }
         
         /* About Section */
@@ -665,46 +686,17 @@
         }
         
         @media (max-width: 768px) {
-            header {
-                height: 80px;
-                padding: 0 15px;
-            }
-            
-            nav {
-                padding: 20px 0;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-            
-            .logo i {
-                font-size: 1.8rem;
-            }
-            
-            .mobile-menu {
-                display: block;
-                font-size: 2.2rem;
-            }
-            
-            .contact-btn {
-                padding: 15px 20px;
-                font-size: 1.1rem;
-                margin-left: 15px;
-            }
-            
             .nav-links {
                 position: fixed;
                 top: 80px;
                 right: -100%;
-                background: rgba(10, 30, 50, 0.95);
+                background: var(--primary-dark);
                 width: 100%;
                 height: calc(100vh - 80px);
                 flex-direction: column;
                 align-items: center;
-                padding: 40px 0 0;
+                padding-top: 60px;
                 transition: var(--transition);
-                backdrop-filter: blur(10px);
             }
             
             .nav-links.active {
@@ -712,48 +704,11 @@
             }
             
             .nav-links li {
-                margin: 30px 0;
-                width: 100%;
-                text-align: center;
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.4s ease, transform 0.4s ease;
+                margin: 25px 0;
             }
             
-            .nav-links.active li {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            
-            .nav-links li:nth-child(1) { transition-delay: 0.1s; }
-            .nav-links li:nth-child(2) { transition-delay: 0.2s; }
-            .nav-links li:nth-child(3) { transition-delay: 0.3s; }
-            .nav-links li:nth-child(4) { transition-delay: 0.4s; }
-            .nav-links li:nth-child(5) { transition-delay: 0.5s; }
-            .nav-links li:nth-child(6) { transition-delay: 0.6s; }
-            
-            .nav-links a {
-                font-size: 1.5rem;
-                padding: 15px 0;
+            .mobile-menu {
                 display: block;
-                width: 100%;
-            }
-            
-            .nav-links a::after {
-                width: 50%;
-                left: 25%;
-            }
-            
-            .nav-links a:hover::after {
-                width: 50%;
-            }
-            
-            .nav-links a i {
-                margin-right: 15px;
-                font-size: 1.5rem;
-                width: 30px;
-                display: inline-block;
-                text-align: center;
             }
             
             .hero h1 {
@@ -820,12 +775,13 @@
                     <span>Чистый Источник</span>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#hero"><i class="fas fa-home"></i> Главная</a></li>
-                    <li><a href="#services"><i class="fas fa-concierge-bell"></i> Услуги</a></li>
-                    <li><a href="#price"><i class="fas fa-tag"></i> Прайс</a></li>  
-                    <li><a href="#about"><i class="fas fa-info-circle"></i> О нас</a></li>
-                    <li><a href="#stats"><i class="fas fa-chart-line"></i> Цифры</a></li>
-                    <li><a href="#contact"><i class="fas fa-address-book"></i> Контакты</a></li>
+                    <li><a href="#hero" class="active">Главная</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="price.html">Прайс</a></li>
+                    <li><a href="gallery.html">Фото работ</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#stats">Цифры</a></li>
+                    <li><a href="#contact">Контакты</a></li>
                 </ul>
                 <a href="#contact" class="contact-btn">Заказать</a>
                 <div class="mobile-menu">
@@ -908,10 +864,11 @@
     </section>
 
     <!-- Price Section -->
-    <section class="section" id="price" style="background: linear-gradient(to bottom, var(--primary), var(--primary-dark));">
+    <section class="section price-section" id="price">
         <div class="container">
             <div class="section-title">
                 <h2>Наши Цены</h2>
+                <p>Прозрачное ценообразование без скрытых платежей</p>
             </div>
             
             <div class="services-grid">
@@ -941,6 +898,10 @@
                     <p>Восстановление конструкции</p>
                     <p><strong>от 15 000 руб.</strong></p>
                 </div>
+            </div>
+            
+            <div class="price-cta animate delay-3">
+                <a href="price.html" class="btn primary-btn">Смотреть полный прайс-лист</a>
             </div>
         </div>
     </section>
@@ -1127,8 +1088,9 @@
                     <ul class="footer-links">
                         <li><a href="#hero"><i class="fas fa-chevron-right"></i> Главная</a></li>
                         <li><a href="#services"><i class="fas fa-chevron-right"></i> Услуги</a></li>
+                        <li><a href="price.html"><i class="fas fa-chevron-right"></i> Прайс</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Фото работ</a></li>
                         <li><a href="#about"><i class="fas fa-chevron-right"></i> О нас</a></li>
-                        <li><a href="#stats"><i class="fas fa-chevron-right"></i> Цифры</a></li>
                         <li><a href="#contact"><i class="fas fa-chevron-right"></i> Контакты</a></li>
                     </ul>
                 </div>
