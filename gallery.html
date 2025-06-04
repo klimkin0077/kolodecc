@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чистый Источник | Фото наших работ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0a3d62;
+            --primary: #1e5b8e;
+            --primary-light: #2d7cb5;
+            --accent: #ff6b6b;
+            --accent-light: #ff8e8e;
+            --accent-secondary: #4ecdc4;
+            --accent-secondary-light: #6de5dd;
+            --dark: #0c1e2c;
+            --light: #ecf0f1;
+            --text: #333;
+            --text-light: #f5f5f5;
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-light));
+            --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-light));
+            --gradient-secondary: linear-gradient(135deg, var(--accent-secondary), var(--accent-secondary-light));
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: var(--dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(30, 91, 142, 0.15) 0%, rgba(30, 91, 142, 0) 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.15) 0%, rgba(255, 107, 107, 0) 20%);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Modern Header Styles */
+        header {
+            background: rgba(10, 61, 98, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(78, 205, 196, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-secondary-light);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--light);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-secondary-light);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-secondary);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .contact-btn {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+        }
+        
+        .contact-btn:hover {
+            background: var(--gradient-accent);
+            color: var(--light);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--light);
+            transition: var(--transition);
+        }
+        
+        .mobile-menu:hover {
+            color: var(--accent-secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: 
+                linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), 
+                url('https://images.unsplash.com/photo-1599587045864-2e1a5b5e5b9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, var(--accent-secondary-light), var(--light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-align: center;
+            min-width: 200px;
+        }
+        
+        .primary-btn {
+            background: var(--gradient-accent);
+            color: var(--text-light);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+        
+        .primary-btn:hover {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+        }
+        
+        .secondary-btn {
+            background: transparent;
+            border: 3px solid var(--accent-secondary-light);
+            color: var(--accent-secondary-light);
+        }
+        
+        .secondary-btn:hover {
+            background: var(--accent-secondary-light);
+            color: var(--dark);
+        }
+        
+        /* Gallery Section */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--accent-secondary-light);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background: var(--accent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            background: rgba(30, 91, 142, 0.3);
+            color: var(--accent-secondary-light);
+            border: 2px solid var(--accent-secondary);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 25px 20px;
+            transition: var(--transition);
+            transform: translateY(10px);
+            opacity: 0;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .gallery-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+        
+        .gallery-service {
+            font-size: 0.9rem;
+            color: var(--accent-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .gallery-service i {
+            font-size: 0.8rem;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(to bottom, var(--primary-dark), var(--dark));
+            padding: 80px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(30, 91, 142, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .client-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-secondary);
+        }
+        
+        .client-info h3 {
+            font-size: 1.3rem;
+            color: var(--accent-secondary-light);
+        }
+        
+        .client-info p {
+            font-size: 0.9rem;
+            color: var(--accent-secondary);
+            opacity: 0.8;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            font-size: 5rem;
+            color: var(--accent-secondary);
+            opacity: 0.2;
+            font-family: serif;
+        }
+        
+        .testimonial-service {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-primary);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: var(--light);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            padding: 70px 0 30px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--accent-secondary-light);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--accent);
+            bottom: -8px;
+            left: 0;
+            border-radius: 3px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a i {
+            color: var(--accent-secondary);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-light);
+            opacity: 1;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient-accent);
+            color: var(--light);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            opacity: 0.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+            padding: 60px 0;
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .modal-img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        
+        .modal-info {
+            background: rgba(30, 91, 142, 0.8);
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .modal-title {
+            font-size: 1.6rem;
+            color: var(--accent-secondary-light);
+            margin-bottom: 10px;
+        }
+        
+        .modal-desc {
+            margin-bottom: 15px;
+        }
+        
+        .modal-service {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: var(--light);
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .close:hover {
+            color: var(--accent);
+        }
+        
+        /* Animation Effects */
+        .animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                background: var(--primary-dark);
+                width: 100%;
+                height: calc(100vh - 80px);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 60px;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 25px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .gallery-item {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-faucet"></i>
+                    <span>Чистый Источник</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index.html#services">Услуги</a></li>
+                    <li><a href="price.html">Прайс</a></li>
+                    <li><a href="gallery.html" class="active">Фото работ</a></li>
+                    <li><a href="index.html#about">О нас</a></li>
+                    <li><a href="index.html#contact">Контакты</a></li>
+                </ul>
+                <a href="index.html#contact" class="contact-btn">Заказать</a>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate">Наши работы</h1>
+                <p class="animate delay-1">Реальные примеры профессиональной чистки и ремонта колодцев</p>
+                <div class="hero-btns">
+                    <a href="#gallery" class="btn primary-btn animate delay-2">Смотреть фото</a>
+                    <a href="index.html#contact" class="btn secondary-btn animate delay-3">Заказать услугу</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Фотогалерея работ</h2>
+                <p>Более 2500 успешно выполненных проектов</p>
+            </div>
+            
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Все работы</button>
+                <button class="filter-btn" data-filter="cleaning">Чистка колодцев</button>
+                <button class="filter-btn" data-filter="repair">Ремонт колодцев</button>
+                <button class="filter-btn" data-filter="smell">Устранение запаха</button>
+                <button class="filter-btn" data-filter="pump">Замена насосов</button>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Чистка колодцев -->
+                <div class="gallery-item animate" data-category="cleaning">
+                    <img src="https://images.unsplash.com/photo-1559666126-84f389727b9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" alt="Чистка колодца" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Полная очистка от ила</div>
+                        <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Москва, Новая Москва</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate delay-1" data-category="cleaning">
+                    <img src="https://images.unsplash.com/photo-1597074866923-dc0589150358?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Дезинфекция колодца" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Дезинфекция после паводка</div>
+                        <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Московская область, Истра</div>
+                    </div>
+                </div>
+                
+                <!-- Ремонт колодцев -->
+                <div class="gallery-item animate delay-2" data-category="repair">
+                    <img src="https://images.unsplash.com/photo-1586348943529-beaae6c28db9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1315&q=80" alt="Ремонт бетонных колец" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Ремонт смещенных колец</div>
+                        <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Московская область, Пушкино</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate delay-1" data-category="repair">
+                    <img src="https://images.unsplash.com/photo-1596524430615-b46475bff9aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Гидропломба швов" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Герметизация швов гидропломбой</div>
+                        <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Москва, Бутово</div>
+                    </div>
+                </div>
+                
+                <!-- Устранение запаха -->
+                <div class="gallery-item animate delay-2" data-category="smell">
+                    <img src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Устранение сероводорода" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Устранение запаха сероводорода</div>
+                        <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Московская область, Мытищи</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate delay-3" data-category="smell">
+                    <img src="https://images.unsplash.com/photo-1558979157-9b875a901e1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Дезинфекция воды" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Дезинфекция воды после загрязнения</div>
+                        <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Московская область, Химки</div>
+                    </div>
+                </div>
+                
+                <!-- Замена насосов -->
+                <div class="gallery-item animate delay-1" data-category="pump">
+                    <img src="https://images.unsplash.com/photo-1602002672430-1a7d1d4a2b8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Установка нового насоса" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Установка погружного насоса</div>
+                        <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Москва, Митино</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate delay-2" data-category="pump">
+                    <img src="https://images.unsplash.com/photo-1567602901358-5ba00815eb15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ремонт насосной станции" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Ремонт насосной станции</div>
+                        <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Московская область, Одинцово</div>
+                    </div>
+                </div>
+                
+                <!-- Дополнительные работы -->
+                <div class="gallery-item animate delay-3" data-category="cleaning">
+                    <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Чистка после зимы" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Весенняя чистка после зимы</div>
+                        <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Московская область, Сергиев Посад</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate delay-1" data-category="repair">
+                    <img src="https://images.unsplash.com/photo-1566837945158-42d5d7f5a9c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Скобирование колец" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Скобирование бетонных колец</div>
+                        <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Москва, Некрасовка</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate delay-2" data-category="smell">
+                    <img src="https://images.unsplash.com/photo-1597076545399-91a3ff0e71b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Устранение цветения" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Устранение цветения воды</div>
+                        <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Московская область, Домодедово</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item animate delay-3" data-category="pump">
+                    <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Замена автоматики" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Замена системы автоматики</div>
+                        <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Московская область, Королёв</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Отзывы клиентов</h2>
+                <p>Что говорят наши заказчики</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card animate">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Александр" class="client-avatar">
+                        <div class="client-info">
+                            <h3>Александр Петров</h3>
+                            <p>Клиент с 2022 года</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        Колодец был в ужасном состоянии после паводка - вода мутная, неприятный запах. Ребята приехали оперативно, за день полностью прочистили, продезинфицировали. Теперь вода как из родника! Очень доволен качеством работ.
+                    </div>
+                    <span class="testimonial-service">Глубокая чистка</span>
+                </div>
+                
+                <div class="testimonial-card animate delay-1">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Елена" class="client-avatar">
+                        <div class="client-info">
+                            <h3>Елена Смирнова</h3>
+                            <p>Клиент с 2021 года</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        Сместились кольца в колодце, вода стала поступать с песком. Специалисты "Чистого Источника" не только отремонтировали колодец, но и объяснили причину проблемы. Работали аккуратно, убрали за собой. Цена соответствовала смете.
+                    </div>
+                    <span class="testimonial-service">Ремонт колодца</span>
+                </div>
+                
+                <div class="testimonial-card animate delay-2">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Дмитрий" class="client-avatar">
+                        <div class="client-info">
+                            <h3>Дмитрий Иванов</h3>
+                            <p>Клиент с 2023 года</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        После замены насоса заметил неприятный запах сероводорода. Обратился в компанию - приехали на следующий день, провели комплекс работ по устранению запаха. Даже сделали бесплатный анализ воды после очистки. Рекомендую!
+                    </div>
+                    <span class="testimonial-service">Устранение запаха</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Закажите чистку колодца прямо сейчас!</h2>
+                <p>Оставьте заявку и получите бесплатную консультацию специалиста</p>
+                <a href="index.html#contact" class="btn primary-btn" style="margin-top: 30px;">Оставить заявку</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <i class="fas fa-faucet"></i>
+                        <span>Чистый Источник</span>
+                    </div>
+                    <p>Профессиональное обслуживание колодцев с гарантией качества. Вернем вашей воде кристальную чистоту!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Наши услуги</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Чистка колодцев</a></li>
+                        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Ремонт колодцев</a></li>
+                        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Устранение запаха</a></li>
+                        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Скобирование колец</a></li>
+                        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Замена насосов</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Главная</a></li>
+                        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Услуги</a></li>
+                        <li><a href="price.html"><i class="fas fa-chevron-right"></i> Прайс</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Фото работ</a></li>
+                        <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+79816666670"><i class="fas fa-phone"></i> +7 (981) 666-66-70</a></li>
+                        <li><a href="mailto:info@chistiy-istochnik.ru"><i class="fas fa-envelope"></i> info@chistiy-istochnik.ru</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Новый Арбат, д. 15</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Пн-Пт: 8:00 - 20:00</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Чистый Источник. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div class="modal-info" id="modalInfo"></div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const menuIcon = mobileMenu.querySelector('i');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navLinks.classList.remove('active');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Gallery Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Show/hide gallery items
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalInfo = document.getElementById('modalInfo');
+        const closeBtn = document.getElementsByClassName('close')[0];
+        
+        // Open modal when gallery item is clicked
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('.gallery-img').src;
+                const title = item.querySelector('.gallery-title').textContent;
+                const service = item.querySelector('.gallery-service').textContent;
+                
+                modal.style.display = 'block';
+                modalImg.src = imgSrc;
+                
+                modalInfo.innerHTML = `
+                    <div class="modal-title">${title}</div>
+                    <div class="modal-desc">${service}</div>
+                    <span class="modal-service">${service.split(' ')[0]}</span>
+                `;
+                
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Close modal
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
