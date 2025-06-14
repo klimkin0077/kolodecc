@@ -75,7 +75,7 @@
             width: 100%;
             z-index: 1000;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: transform 0.3s ease, background 0.4s ease;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(78, 205, 196, 0.3);
         }
@@ -664,6 +664,125 @@
         .delay-4 { transition-delay: 0.4s; }
         .delay-5 { transition-delay: 0.5s; }
         
+        /* Video Gallery Styles */
+        .videos-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        
+        .video-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .video-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .video-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 соотношение */
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .video-item:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+        
+        .play-icon i {
+            color: var(--accent);
+            font-size: 30px;
+            margin-left: 5px;
+        }
+        
+        .video-item:hover .play-icon {
+            background: var(--accent);
+        }
+        
+        .video-item:hover .play-icon i {
+            color: white;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 25px 20px;
+            transition: var(--transition);
+        }
+        
+        .video-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+        
+        .video-desc {
+            font-size: 1rem;
+            color: var(--accent-secondary);
+        }
+        
+        /* Модальное окно для видео */
+        .modal-video-container {
+            position: relative;
+            width: 80%;
+            max-width: 900px;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 */
+            margin: 0 auto;
+        }
+        
+        .modal-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        
         /* Mobile Responsiveness */
         @media (max-width: 992px) {
             .hero h1 {
@@ -725,6 +844,80 @@
             
             .gallery-item {
                 height: 250px;
+            }
+            
+            /* Мобильные улучшения */
+            header {
+                transition: transform 0.3s ease;
+            }
+            
+            .close {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+                background: rgba(0,0,0,0.5);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .modal-content {
+                max-width: 95%;
+                max-height: 70vh;
+            }
+            
+            .modal-info {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .nav-links {
+                top: 70px;
+                height: calc(100vh - 70px);
+                padding-top: 30px;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .contact-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .gallery-item {
+                height: 220px;
+            }
+            
+            .gallery-overlay {
+                padding: 15px;
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .gallery-title {
+                font-size: 1.2rem;
+            }
+            
+            .video-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-thumbnail {
+                padding-bottom: 60%;
+            }
+            
+            .play-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .play-icon i {
+                font-size: 20px;
             }
         }
         
@@ -911,7 +1104,8 @@
             </div>
         </div>
     </section>
-<!-- Video Gallery Section -->
+    
+    <!-- Video Gallery Section -->
 <section class="section" id="videos">
     <div class="container">
         <div class="section-title">
@@ -924,7 +1118,7 @@
             <div class="video-row">
                 <div class="video-item animate" data-category="cleaning">
                     <div class="video-thumbnail">
-                        <img src="https://disk.yandex.ru/i/-gxEkdvpejFM2Q" alt="Профессиональная чистка колодца">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg" alt="Профессиональная чистка колодца">
                         <div class="play-icon">
                             <i class="fas fa-play"></i>
                         </div>
@@ -994,172 +1188,6 @@
                 allowfullscreen></iframe>
     </div>
 </div>
-
-<style>
-    /* Стили для видео-галереи */
-    .videos-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    .video-row {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-    
-    .video-item {
-        position: relative;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        cursor: pointer;
-        transition: var(--transition);
-    }
-    
-    .video-item:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    }
-    
-    .video-thumbnail {
-        position: relative;
-        height: 0;
-        padding-bottom: 56.25%; /* 16:9 соотношение */
-        overflow: hidden;
-    }
-    
-    .video-thumbnail img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: var(--transition);
-    }
-    
-    .video-item:hover .video-thumbnail img {
-        transform: scale(1.05);
-    }
-    
-    .play-icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 70px;
-        height: 70px;
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0.9;
-        transition: var(--transition);
-    }
-    
-    .play-icon i {
-        color: var(--accent);
-        font-size: 30px;
-        margin-left: 5px;
-    }
-    
-    .video-item:hover .play-icon {
-        background: var(--accent);
-    }
-    
-    .video-item:hover .play-icon i {
-        color: white;
-    }
-    
-    .video-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-        padding: 25px 20px;
-        transition: var(--transition);
-    }
-    
-    .video-title {
-        font-size: 1.4rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-        color: var(--light);
-    }
-    
-    .video-desc {
-        font-size: 1rem;
-        color: var(--accent-secondary);
-    }
-    
-    /* Модальное окно для видео */
-    .modal-video-container {
-        position: relative;
-        width: 80%;
-        max-width: 900px;
-        height: 0;
-        padding-bottom: 56.25%; /* 16:9 */
-        margin: 0 auto;
-    }
-    
-    .modal-video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-    }
-    
-    /* Адаптивность */
-    @media (max-width: 768px) {
-        .video-row {
-            grid-template-columns: 1fr;
-        }
-        
-        .modal-video-container {
-            width: 95%;
-        }
-    }
-</style>
-
-<script>
-    // Функционал для видео
-    const videoItems = document.querySelectorAll('.video-item');
-    const videoModal = document.getElementById('videoModal');
-    const videoFrame = document.getElementById('videoFrame');
-    const videoClose = videoModal.querySelector('.close');
-
-    videoItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const videoSource = this.querySelector('.video-source');
-            const videoId = videoSource.getAttribute('data-video');
-            
-            videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            videoModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
-    });
-
-    // Закрытие видео-модалки
-    videoClose.addEventListener('click', function() {
-        videoModal.style.display = 'none';
-        videoFrame.src = '';
-        document.body.style.overflow = 'auto';
-    });
-
-    window.addEventListener('click', (e) => {
-        if (e.target === videoModal) {
-            videoModal.style.display = 'none';
-            videoFrame.src = '';
-            document.body.style.overflow = 'auto';
-        }
-    });
-</script>
     
     <!-- Testimonials Section -->
     <section class="section testimonials">
@@ -1301,6 +1329,15 @@
             menuIcon.classList.toggle('fa-times');
         });
         
+        // Закрытие меню при клике на пункт
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
+            });
+        });
+        
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1316,10 +1353,25 @@
             });
         });
         
-        // Header scroll effect
+        // Header scroll effect - скрытие шапки на мобильных
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        const mobileBreakpoint = 768;
+        
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            header.classList.toggle('scrolled', window.scrollY > 50);
+            if (window.innerWidth <= mobileBreakpoint) {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Скролл вниз
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Скролл вверх
+                    header.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = scrollTop;
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
         });
         
         // Animation on scroll
@@ -1368,7 +1420,15 @@
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
         const modalInfo = document.getElementById('modalInfo');
-        const closeBtn = document.getElementsByClassName('close')[0];
+        const closeBtn = modal.getElementsByClassName('close')[0];
+        
+        // Закрытие модалки при клике на изображение (для мобильных)
+        modalImg.addEventListener('click', () => {
+            if (window.innerWidth <= mobileBreakpoint) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
         
         // Open modal when gallery item is clicked
         galleryItems.forEach(item => {
@@ -1403,16 +1463,48 @@
                 document.body.style.overflow = 'auto';
             }
         });
+        
+        // Функционал для видео
+        const videoItems = document.querySelectorAll('.video-item');
+        const videoModal = document.getElementById('videoModal');
+        const videoFrame = document.getElementById('videoFrame');
+        const videoClose = videoModal.querySelector('.close');
+    
+        videoItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const videoSource = this.querySelector('.video-source');
+                const videoId = videoSource.getAttribute('data-video');
+                
+                videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                videoModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+    
+        // Закрытие видео-модалки
+        videoClose.addEventListener('click', function() {
+            videoModal.style.display = 'none';
+            videoFrame.src = '';
+            document.body.style.overflow = 'auto';
+        });
+    
+        window.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                videoModal.style.display = 'none';
+                videoFrame.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Обработка кнопки заказа
+        document.getElementById('orderServiceBtn').addEventListener('click', function(e) {
+            // Для мобильных устройств
+            if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                e.preventDefault(); // Отменяем переход по ссылке
+                window.location.href = 'tel:' + this.dataset.phone;
+            }
+            // Для десктопов - стандартное поведение (переход к разделу контактов)
+        });
     </script>
-    <script>
-  document.getElementById('orderServiceBtn').addEventListener('click', function(e) {
-    // Для мобильных устройств
-    if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      e.preventDefault(); // Отменяем переход по ссылке
-      window.location.href = 'tel:' + this.dataset.phone;
-    }
-    // Для десктопов - стандартное поведение (переход к разделу контактов)
-  });
-</script>
 </body>
 </html>
