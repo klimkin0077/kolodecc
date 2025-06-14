@@ -912,72 +912,173 @@
         </div>
     </section>
       <!-- Video Gallery Section -->
-    <section class="section" id="videos">
-        <div class="container">
-            <div class="section-title">
-                <h2>Видео наших работ</h2>
-                <p>Процессы чистки и ремонта колодцев в действии</p>
+  <!-- Video Gallery Section -->
+<section class="section" id="videos">
+    <div class="container">
+        <div class="section-title">
+            <h2>Видео наших работ</h2>
+            <p>Процессы чистки и ремонта колодцев в действии</p>
+        </div>
+        
+        <div class="gallery-grid"> <!-- Используем существующий класс для сетки -->
+            <div class="gallery-item animate" data-category="cleaning">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/5rXg5QdBQl4/maxresdefault.jpg" alt="Профессиональная чистка колодца">
+                    <div class="play-icon">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Профессиональная чистка колодца</div>
+                    <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Московская область, Истра</div>
+                </div>
+                <div class="video-source" data-video="5rXg5QdBQl4"></div>
             </div>
             
-            <div class="videos-grid">
-                <div class="video-item animate">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Профессиональная чистка колодца">
-                        <div class="play-icon">
-                            <i class="fas fa-play"></i>
-                        </div>
+            <div class="gallery-item animate delay-1" data-category="repair">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/5rXg5QdBQl4/maxresdefault.jpg" alt="Ремонт бетонных колец">
+                    <div class="play-icon">
+                        <i class="fas fa-play"></i>
                     </div>
-                    <div class="video-overlay">
-                        <div class="video-title">Профессиональная чистка колодца</div>
-                        <div class="video-desc">Полный процесс очистки колодца от ила и загрязнений</div>
-                    </div>
-                    <div class="video-source" data-video="dQw4w9WgXcQ"></div>
                 </div>
-                
-                <div class="video-item animate delay-1">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Ремонт бетонных колец">
-                        <div class="play-icon">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-overlay">
-                        <div class="video-title">Ремонт бетонных колец</div>
-                        <div class="video-desc">Устранение смещения колец и герметизация швов</div>
-                    </div>
-                    <div class="video-source" data-video="dQw4w9WgXcQ"></div>
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Ремонт бетонных колец</div>
+                    <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Москва, Бутово</div>
                 </div>
-                
-                <div class="video-item animate delay-2">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Устранение запаха сероводорода">
-                        <div class="play-icon">
-                            <i class="fas fa-play"></i>
-                        </div>
+                <div class="video-source" data-video="5rXg5QdBQl4"></div>
+            </div>
+            
+            <div class="gallery-item animate delay-2" data-category="smell">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/5rXg5QdBQl4/maxresdefault.jpg" alt="Устранение запаха сероводорода">
+                    <div class="play-icon">
+                        <i class="fas fa-play"></i>
                     </div>
-                    <div class="video-overlay">
-                        <div class="video-title">Устранение запаха сероводорода</div>
-                        <div class="video-desc">Процесс очистки и дезинфекции воды в колодце</div>
-                    </div>
-                    <div class="video-source" data-video="dQw4w9WgXcQ"></div>
                 </div>
-                
-                <div class="video-item animate delay-3">
-                    <div class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg" alt="Замена насосного оборудования">
-                        <div class="play-icon">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-overlay">
-                        <div class="video-title">Замена насосного оборудования</div>
-                        <div class="video-desc">Установка нового погружного насоса и автоматики</div>
-                    </div>
-                    <div class="video-source" data-video="dQw4w9WgXcQ"></div>
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Устранение запаха сероводорода</div>
+                    <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Московская область, Мытищи</div>
                 </div>
+                <div class="video-source" data-video="5rXg5QdBQl4"></div>
+            </div>
+            
+            <div class="gallery-item animate delay-3" data-category="pump">
+                <div class="video-thumbnail">
+                    <img src="https://img.youtube.com/vi/5rXg5QdBQl4/maxresdefault.jpg" alt="Замена насосного оборудования">
+                    <div class="play-icon">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Замена насосного оборудования</div>
+                    <div class="gallery-service"><i class="fas fa-map-marker-alt"></i> Москва, Митино</div>
+                </div>
+                <div class="video-source" data-video="5rXg5QdBQl4"></div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Добавляем модальное окно для видео -->
+<div id="videoModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-video-container">
+        <iframe id="videoFrame" width="100%" height="100%" src="" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    </div>
+</div>
+
+<style>
+    /* Добавляем стили для видео-модалки */
+    .modal-video-container {
+        position: relative;
+        width: 80%;
+        max-width: 900px;
+        height: 0;
+        padding-bottom: 56.25%; /* Соотношение 16:9 */
+        margin: 0 auto;
+    }
+    
+    .modal-video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+    .video-thumbnail {
+        position: relative;
+        height: 100%;
+    }
+    
+    .play-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.9;
+        transition: var(--transition);
+    }
+    
+    .play-icon i {
+        color: var(--accent);
+        font-size: 30px;
+        margin-left: 5px;
+    }
+    
+    .video-thumbnail:hover .play-icon {
+        background: var(--accent);
+    }
+    
+    .video-thumbnail:hover .play-icon i {
+        color: white;
+    }
+</style>
+
+<script>
+    // Функционал для видео
+    const videoItems = document.querySelectorAll('.gallery-item[data-category]');
+    const videoModal = document.getElementById('videoModal');
+    const videoFrame = document.getElementById('videoFrame');
+    const videoClose = videoModal.querySelector('.close');
+
+    videoItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const videoSource = this.querySelector('.video-source');
+            const videoId = videoSource.getAttribute('data-video');
+            
+            videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            videoModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Закрытие видео-модалки
+    videoClose.addEventListener('click', function() {
+        videoModal.style.display = 'none';
+        videoFrame.src = '';
+        document.body.style.overflow = 'auto';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+            videoModal.style.display = 'none';
+            videoFrame.src = '';
+            document.body.style.overflow = 'auto';
+        }
+    });
+</script>
     
     <!-- Testimonials Section -->
     <section class="section testimonials">
