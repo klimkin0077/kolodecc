@@ -924,7 +924,7 @@
             <div class="video-row">
                 <div class="video-item animate" data-category="cleaning">
                     <div class="video-thumbnail">
-                        <img src="images/kolodec1.mp4" alt="Профессиональная чистка колодца">
+                        <img src="https://disk.yandex.ru/i/-gxEkdvpejFM2Q" alt="Профессиональная чистка колодца">
                         <div class="play-icon">
                             <i class="fas fa-play"></i>
                         </div>
@@ -938,7 +938,7 @@
                 
                 <div class="video-item animate delay-1" data-category="repair">
                     <div class="video-thumbnail">
-                        <img src="images/kolodec2.mp4" alt="Ремонт бетонных колец">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg" alt="Ремонт бетонных колец">
                         <div class="play-icon">
                             <i class="fas fa-play"></i>
                         </div>
@@ -955,7 +955,7 @@
             <div class="video-row">
                 <div class="video-item animate delay-2" data-category="smell">
                     <div class="video-thumbnail">
-                        <img src="images/kolodec3.mp4" alt="Устранение запаха сероводорода">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_3/maxresdefault.jpg" alt="Устранение запаха сероводорода">
                         <div class="play-icon">
                             <i class="fas fa-play"></i>
                         </div>
@@ -969,7 +969,7 @@
                 
                 <div class="video-item animate delay-3" data-category="pump">
                     <div class="video-thumbnail">
-                        <img src="images/kolodec4.mp4" alt="Замена насосного оборудования">
+                        <img src="https://img.youtube.com/vi/VIDEO_ID_4/maxresdefault.jpg" alt="Замена насосного оборудования">
                         <div class="play-icon">
                             <i class="fas fa-play"></i>
                         </div>
@@ -985,129 +985,177 @@
     </div>
 </section>
 
-<!-- Video Gallery Section -->
-<section class="section" id="videos">
-    <div class="container">
-        <div class="section-title">
-            <h2>Видео наших работ</h2>
-            <p>Процессы чистки и ремонта колодцев в действии</p>
-        </div>
-        
-        <div class="videos-grid">
-            <!-- Первый ряд (2 видео) -->
-            <div class="video-row">
-                <div class="video-item animate" data-category="cleaning">
-                    <div class="video-thumbnail">
-                        <!-- Превью для видео 1 -->
-                        <img src="images/video1-preview.jpg" alt="Профессиональная чистка колодца">
-                        <div class="play-icon">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-overlay">
-                        <div class="video-title">Профессиональная чистка колодца</div>
-                        <div class="video-desc">Полный процесс очистки колодца от ила и загрязнений</div>
-                    </div>
-                    <div class="video-source" data-video="https://disk.yandex.ru/d/ВАШ_ИД_ДИСКА/cleaning.mp4"></div>
-                </div>
-                
-                <div class="video-item animate delay-1" data-category="repair">
-                    <div class="video-thumbnail">
-                        <!-- Превью для видео 2 -->
-                        <img src="images/video2-preview.jpg" alt="Ремонт бетонных колец">
-                        <div class="play-icon">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-overlay">
-                        <div class="video-title">Ремонт бетонных колец</div>
-                        <div class="video-desc">Устранение смещения колец и герметизация швов</div>
-                    </div>
-                    <div class="video-source" data-video="https://disk.yandex.ru/d/ВАШ_ИД_ДИСКА/repair.mp4"></div>
-                </div>
-            </div>
-            
-            <!-- Второй ряд (2 видео) -->
-            <div class="video-row">
-                <div class="video-item animate delay-2" data-category="smell">
-                    <div class="video-thumbnail">
-                        <!-- Превью для видео 3 -->
-                        <img src="images/video3-preview.jpg" alt="Устранение запаха сероводорода">
-                        <div class="play-icon">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-overlay">
-                        <div class="video-title">Устранение запаха сероводорода</div>
-                        <div class="video-desc">Процесс очистки и дезинфекции воды в колодце</div>
-                    </div>
-                    <div class="video-source" data-video="https://disk.yandex.ru/d/ВАШ_ИД_ДИСКА/smell.mp4"></div>
-                </div>
-                
-                <div class="video-item animate delay-3" data-category="pump">
-                    <div class="video-thumbnail">
-                        <!-- Превью для видео 4 -->
-                        <img src="https://disk.yandex.ru/i/-gxEkdvpejFM2Q" alt="Замена насосного оборудования">
-                        <div class="play-icon">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
-                    <div class="video-overlay">
-                        <div class="video-title">Замена насосного оборудования</div>
-                        <div class="video-desc">Установка нового погружного насоса и автоматики</div>
-                    </div>
-                    <div class="video-source" data-video="https://disk.yandex.ru/d/ВАШ_ИД_ДИСКА/pump.mp4"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Модальное окно для видео -->
 <div id="videoModal" class="modal">
     <span class="close">&times;</span>
     <div class="modal-video-container">
-        <video id="customVideoPlayer" controls width="100%">
-            Ваш браузер не поддерживает видео тег.
-        </video>
+        <iframe id="videoFrame" width="100%" height="100%" src="" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
     </div>
 </div>
 
+<style>
+    /* Стили для видео-галереи */
+    .videos-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .video-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .video-item {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        cursor: pointer;
+        transition: var(--transition);
+    }
+    
+    .video-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .video-thumbnail {
+        position: relative;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 соотношение */
+        overflow: hidden;
+    }
+    
+    .video-thumbnail img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+    
+    .video-item:hover .video-thumbnail img {
+        transform: scale(1.05);
+    }
+    
+    .play-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.9;
+        transition: var(--transition);
+    }
+    
+    .play-icon i {
+        color: var(--accent);
+        font-size: 30px;
+        margin-left: 5px;
+    }
+    
+    .video-item:hover .play-icon {
+        background: var(--accent);
+    }
+    
+    .video-item:hover .play-icon i {
+        color: white;
+    }
+    
+    .video-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        padding: 25px 20px;
+        transition: var(--transition);
+    }
+    
+    .video-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--light);
+    }
+    
+    .video-desc {
+        font-size: 1rem;
+        color: var(--accent-secondary);
+    }
+    
+    /* Модальное окно для видео */
+    .modal-video-container {
+        position: relative;
+        width: 80%;
+        max-width: 900px;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 */
+        margin: 0 auto;
+    }
+    
+    .modal-video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+        .video-row {
+            grid-template-columns: 1fr;
+        }
+        
+        .modal-video-container {
+            width: 95%;
+        }
+    }
+</style>
+
 <script>
-    // Функционал для видео с Яндекс.Диска
+    // Функционал для видео
     const videoItems = document.querySelectorAll('.video-item');
     const videoModal = document.getElementById('videoModal');
-    const videoPlayer = document.getElementById('customVideoPlayer');
+    const videoFrame = document.getElementById('videoFrame');
     const videoClose = videoModal.querySelector('.close');
 
     videoItems.forEach(item => {
         item.addEventListener('click', function() {
             const videoSource = this.querySelector('.video-source');
-            const videoUrl = videoSource.getAttribute('data-video');
+            const videoId = videoSource.getAttribute('data-video');
             
-            videoPlayer.innerHTML = `<source src="${videoUrl}" type="video/mp4">`;
-            videoPlayer.load();
+            videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
             videoModal.style.display = 'block';
             document.body.style.overflow = 'hidden';
-            
-            // Попытка автовоспроизведения (может не работать без жеста пользователя)
-            videoPlayer.play().catch(e => {
-                console.log("Autoplay blocked, user interaction required");
-            });
         });
     });
 
     // Закрытие видео-модалки
     videoClose.addEventListener('click', function() {
-        videoPlayer.pause();
         videoModal.style.display = 'none';
+        videoFrame.src = '';
         document.body.style.overflow = 'auto';
     });
 
     window.addEventListener('click', (e) => {
         if (e.target === videoModal) {
-            videoPlayer.pause();
             videoModal.style.display = 'none';
+            videoFrame.src = '';
             document.body.style.overflow = 'auto';
         }
     });
