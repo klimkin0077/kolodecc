@@ -783,7 +783,7 @@
                     <a href="index.html#contact" 
    id="orderServiceBtn" 
    class="btn secondary-btn animate delay-3"
-   data-phone="+71234567890"> <!-- Замените номер -->
+   data-phone="+79650314609"> <!-- Замените номер -->
    Заказать услугу
 </a>
                 </div>
@@ -1155,5 +1155,15 @@
             }
         });
     </script>
+    <script>
+  document.getElementById('orderServiceBtn').addEventListener('click', function(e) {
+    // Для мобильных устройств
+    if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      e.preventDefault(); // Отменяем переход по ссылке
+      window.location.href = 'tel:' + this.dataset.phone;
+    }
+    // Для десктопов - стандартное поведение (переход к разделу контактов)
+  });
+</script>
 </body>
 </html>
