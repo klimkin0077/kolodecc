@@ -644,6 +644,19 @@
         .delay-4 { transition-delay: 0.4s; }
         .delay-5 { transition-delay: 0.5s; }
         
+        /* Дополнительные разделы */
+        #services, #prices {
+            background: var(--primary-dark);
+            padding: 100px 0;
+            text-align: center;
+            font-size: 2rem;
+            color: var(--accent-secondary-light);
+        }
+        
+        .section-title h2 {
+            color: var(--accent-secondary-light);
+        }
+        
         /* Mobile Responsiveness */
         @media (max-width: 992px) {
             .hero-content h1 {
@@ -733,17 +746,17 @@
         <div class="container">
             <nav>
                 <!-- Логотип -->
-                <a href="#" class="logo">
+                <a href="#" class="logo" onclick="scrollToTop()">
                     <i class="fas fa-faucet"></i>
                     <span>Чистый Источник</span>
                 </a>
                 
                 <ul class="nav-links">
-                    <li><a href="#">Главная</a></li>
-                    <li><a href="#" class="active">Акции</a></li>
-                    <li><a href="#">Услуги</a></li>
-                    <li><a href="#">Прайс</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#" onclick="scrollToTop()">Главная</a></li>
+                    <li><a href="#promotions" class="active">Акции</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#prices">Прайс</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
                 </ul>
                 
                 <!-- УТП "Срочный выезд" (только для ПК) -->
@@ -775,6 +788,32 @@
                     <a href="#promotions" class="btn primary-btn animate delay-2">Смотреть акции</a>
                     <a href="#order" class="btn secondary-btn animate delay-3">Заказать чистку</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши услуги</h2>
+                <p>Профессиональные решения для вашего колодца</p>
+            </div>
+            <div class="animate">
+                <p>Чистка колодцев, ремонт, дезинфекция и многое другое...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Прайс -->
+    <section class="section" id="prices">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши цены</h2>
+                <p>Прозрачное ценообразование и выгодные условия</p>
+            </div>
+            <div class="animate">
+                <p>Комплексная чистка от 8 000 руб., ремонт от 12 000 руб...</p>
             </div>
         </div>
     </section>
@@ -962,7 +1001,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contacts">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
@@ -1018,20 +1057,40 @@
             menuIcon.classList.toggle('fa-times');
         });
         
-        // Smooth scrolling
+        // Smooth scrolling with header offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
                 e.preventDefault();
                 
+                // Close mobile menu if open
                 navLinks.classList.remove('active');
                 menuIcon.classList.add('fa-bars');
                 menuIcon.classList.remove('fa-times');
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                
+                if (target) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
+        
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
         
         // Form submission
         const orderForm = document.getElementById('orderForm');
