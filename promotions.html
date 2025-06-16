@@ -385,21 +385,6 @@
             font-weight: bold;
         }
         
-        .promotion-timer {
-            background: rgba(255, 107, 107, 0.2);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-weight: 600;
-        }
-        
-        .timer-numbers {
-            font-size: 1.8rem;
-            color: var(--accent-light);
-            font-weight: 800;
-            margin: 10px 0;
-        }
-        
         /* Уникальные УТП */
         .utp-section {
             background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
@@ -745,14 +730,14 @@
     <header>
         <div class="container">
             <nav>
-                <!-- Логотип -->
-                <a href="#" class="logo" onclick="scrollToTop()">
-                    <i class="fas fa-faucet"></i>
+                <!-- Логотип с капелькой -->
+                <a href="index.html" class="logo">
+                    <i class="fas fa-tint"></i> <!-- Изменено на капельку -->
                     <span>Чистый Источник</span>
                 </a>
                 
                 <ul class="nav-links">
-                    <li><a href="#" onclick="scrollToTop()">Главная</a></li>
+                    <li><a href="index.html">Главная</a></li> <!-- Исправленная ссылка -->
                     <li><a href="#promotions" class="active">Акции</a></li>
                     <li><a href="#services">Услуги</a></li>
                     <li><a href="#prices">Прайс</a></li>
@@ -847,11 +832,6 @@
                         <li>Гарантия 1 год</li>
                     </ul>
                     
-                    <div class="promotion-timer">
-                        <p>До конца акции осталось:</p>
-                        <div class="timer-numbers">5 дней 12:34:21</div>
-                    </div>
-                    
                     <a href="#order" class="btn primary-btn">Заказать сейчас</a>
                 </div>
                 
@@ -875,11 +855,6 @@
                         <li>Гарантия 3 года</li>
                     </ul>
                     
-                    <div class="promotion-timer">
-                        <p>До конца акции осталось:</p>
-                        <div class="timer-numbers">5 дней 12:34:21</div>
-                    </div>
-                    
                     <a href="#order" class="btn primary-btn">Заказать сейчас</a>
                 </div>
                 
@@ -902,11 +877,6 @@
                         <li>Бесплатный выезд</li>
                         <li>Скидка 48%</li>
                     </ul>
-                    
-                    <div class="promotion-timer">
-                        <p>До конца акции осталось:</p>
-                        <div class="timer-numbers">5 дней 12:34:21</div>
-                    </div>
                     
                     <a href="#order" class="btn primary-btn">Заказать сейчас</a>
                 </div>
@@ -1006,7 +976,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <div class="logo">
-                        <i class="fas fa-faucet"></i>
+                        <i class="fas fa-tint"></i> <!-- Изменено на капельку -->
                         <span>Чистый Источник</span>
                     </div>
                     <p>Профессиональное обслуживание колодцев с гарантией качества. Вернем вашей воде кристальную чистоту!</p>
@@ -1084,14 +1054,6 @@
             });
         });
         
-        // Scroll to top function
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-        
         // Form submission
         const orderForm = document.getElementById('orderForm');
         orderForm.addEventListener('submit', (e) => {
@@ -1108,18 +1070,6 @@
             // Reset form
             orderForm.reset();
         });
-        
-        // Timer for promotions
-        function updateTimer() {
-            const timerElements = document.querySelectorAll('.timer-numbers');
-            timerElements.forEach(timer => {
-                // Demo timer logic (in real implementation would use actual dates)
-                timer.textContent = "5 дней 12:34:21";
-            });
-        }
-        
-        // Update timer every second
-        setInterval(updateTimer, 1000);
         
         // Animation on scroll
         const observerOptions = {
