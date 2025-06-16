@@ -170,27 +170,16 @@
         
         .mobile-menu {
             display: none;
-            font-size: 1.8rem;
+            font-size: 2rem; /* Увеличиваем размер бургера */
             cursor: pointer;
             color: var(--light);
             transition: var(--transition);
+            padding: 10px; /* Увеличиваем область нажатия */
+            z-index: 1001; /* Повышаем z-index */
         }
         
         .mobile-menu:hover {
             color: var(--accent-secondary);
-        }
-        
-        /* Яркое УТП в шапке (только для ПК) */
-        .header-utp {
-            background: var(--gradient-accent);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-right: 15px;
-            white-space: nowrap;
-            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
         }
         
         /* Hero Section */
@@ -709,10 +698,19 @@
         .mobile-phone a {
             color: var(--accent-secondary);
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
         }
 
         .mobile-phone a:hover {
-            color: var(--accent-light);
+            background: var(--gradient-accent);
+            color: var(--light);
         }
 
         /* Стили для телефона в мобильном меню */
@@ -759,15 +757,17 @@
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 0;
                 right: -100%;
                 background: var(--primary-dark);
                 width: 100%;
-                height: calc(100vh - 80px);
+                height: 100vh;
                 flex-direction: column;
                 align-items: center;
-                padding-top: 60px;
+                padding-top: 100px;
                 transition: var(--transition);
+                z-index: 1000;
+                overflow-y: auto;
             }
             
             .nav-links.active {
@@ -780,6 +780,8 @@
             
             .mobile-menu {
                 display: block;
+                z-index: 1001;
+                position: relative;
             }
             
             .hero h1 {
@@ -905,6 +907,70 @@
                 margin-bottom: 30px;
             }
         }
+
+        /* УЛУЧШЕНИЯ ДЛЯ ШАПКИ */
+        /* Увеличиваем пространство между элементами в шапке */
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 0;
+            }
+            
+            .logo {
+                margin-right: 15px; /* Добавляем отступ справа */
+            }
+            
+            .mobile-phone {
+                margin-left: 25px; /* Увеличиваем отступ слева */
+            }
+            
+            /* Делаем иконку телефона более крупной и заметной */
+            .mobile-phone a {
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Стиль для кнопки "Наши работы" в шапке */
+        .works-btn {
+            background: var(--gradient-accent);
+            color: var(--text-light);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .works-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .works-btn i {
+            font-size: 0.9em;
+        }
+
+        /* Закрывающая иконка для меню */
+        .close-menu {
+            display: none;
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 2rem;
+            color: var(--light);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .close-menu.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -929,6 +995,10 @@
                     <li><a href="#services">Услуги</a></li>
                     <li><a href="#price">Прайс</a></li>
                     <li><a href="promotions.html">Акции</a></li>
+                    <!-- КНОПКА "НАШИ РАБОТЫ" -->
+                    <li><a href="gallery.html" class="works-btn">
+                        <i class="fas fa-images"></i> Наши работы
+                    </a></li>
                     <li><a href="#about">О нас</a></li>
                     <li><a href="#contact">Контакты</a></li>
                     <!-- Пункт с номером для мобильного меню -->
@@ -939,11 +1009,6 @@
                     </li>
                 </ul>
                 
-                <!-- УТП "Срочный выезд" (только для ПК) -->
-                <div class="header-utp">
-                    Срочный выезд
-                </div>
-                
                 <!-- Телефон для десктопов -->
                 <div class="header-phone">
                     <a href="tel:+79816666670" class="contact-btn">
@@ -953,6 +1018,11 @@
                 
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
+                </div>
+                
+                <!-- Кнопка закрытия меню -->
+                <div class="close-menu">
+                    <i class="fas fa-times"></i>
                 </div>
             </nav>
         </div>
@@ -1297,8 +1367,8 @@
                         <li><a href="#hero"><i class="fas fa-chevron-right"></i> Главная</a></li>
                         <li><a href="#services"><i class="fas fa-chevron-right"></i> Услуги</a></li>
                         <li><a href="promotions.html" class="active"><i class="fas fa-percent"></i> Акции</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Наши работы</a></li>
                         <li><a href="price.html"><i class="fas fa-chevron-right"></i> Прайс</a></li>
-                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Фото работ</a></li>
                         <li><a href="#about"><i class="fas fa-chevron-right"></i> О нас</a></li>
                         <li><a href="#contact"><i class="fas fa-chevron-right"></i> Контакты</a></li>
                     </ul>
@@ -1325,11 +1395,33 @@
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
         const menuIcon = mobileMenu.querySelector('i');
+        const closeMenu = document.querySelector('.close-menu');
         
         mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuIcon.classList.toggle('fa-bars');
-            menuIcon.classList.toggle('fa-times');
+            navLinks.classList.add('active');
+            closeMenu.classList.add('active');
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+            document.body.style.overflow = 'hidden'; // Блокируем скролл при открытом меню
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            closeMenu.classList.remove('active');
+            menuIcon.classList.add('fa-bars');
+            menuIcon.classList.remove('fa-times');
+            document.body.style.overflow = 'auto'; // Восстанавливаем скролл
+        });
+        
+        // Закрытие меню при клике на ссылку
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                closeMenu.classList.remove('active');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
+                document.body.style.overflow = 'auto';
+            });
         });
         
         // Smooth scrolling
@@ -1338,8 +1430,10 @@
                 e.preventDefault();
                 
                 navLinks.classList.remove('active');
+                closeMenu.classList.remove('active');
                 menuIcon.classList.add('fa-bars');
                 menuIcon.classList.remove('fa-times');
+                document.body.style.overflow = 'auto';
                 
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
