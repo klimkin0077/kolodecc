@@ -35,13 +35,15 @@
         }
         
 /* Установка фонового изображения */
-body {
-    background-image: url('https://images.unsplash.com/photo-FO1Xyh_2HHI?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-}
+     body {
+            background: var(--dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(30, 91, 142, 0.15) 0%, rgba(30, 91, 142, 0) 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 107, 0.15) 0%, rgba(255, 107, 107, 0) 20%);
+        }
         
         .container {
             width: 90%;
@@ -186,7 +188,7 @@ body {
             height: 100vh;
             background: 
                 linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), 
-                url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80') center/cover;
+                url('https://unsplash.com/photos/a-well-in-the-middle-of-a-grassy-field-FO1Xyh_2HHI') center/cover;
             display: flex;
             align-items: center;
             text-align: center;
