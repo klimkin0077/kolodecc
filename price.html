@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Чистый Источник | Прайс-лист</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💧</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-dark: #0a3d62;
@@ -52,48 +52,69 @@
             padding: 0 15px;
         }
         
-        /* Modern Header Styles */
+        /* Header Styles - Identical to main page */
         header {
-            background: rgba(10, 61, 98, 0.95);
+            background: rgba(10, 61, 98, 0.98);
             position: fixed;
             width: 100%;
             z-index: 1000;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(78, 205, 196, 0.3);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease, background 0.4s ease;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(78, 205, 196, 0.2);
+            transform: translateY(0);
+        }
+        
+        header.hidden {
+            transform: translateY(-100%);
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 12px 0;
+            position: relative;
         }
         
-        /* Уменьшенный логотип */
         .logo {
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 800;
             color: var(--accent-secondary-light);
             display: flex;
             align-items: center;
+            text-decoration: none;
+            transition: var(--transition);
+            z-index: 1002;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo img {
+            border-radius: 8px;
             transition: var(--transition);
         }
         
-        .logo i {
-            margin-right: 8px;
-            color: var(--light);
-            font-size: 1.2rem;
+        .logo:hover img {
+            transform: rotate(5deg);
+        }
+        
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
         
         .nav-links {
             display: flex;
             list-style: none;
+            align-items: center;
+            gap: 25px;
         }
         
         .nav-links li {
-            margin-left: 25px;
             position: relative;
         }
         
@@ -104,361 +125,543 @@
             transition: var(--transition);
             position: relative;
             font-size: 1rem;
-            padding: 8px 0;
+            padding: 10px 15px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .nav-links a:hover {
             color: var(--accent-secondary-light);
+            background: rgba(78, 205, 196, 0.1);
         }
         
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--accent-secondary);
-            bottom: 0;
-            left: 0;
-            transition: var(--transition);
+        .nav-links a.active {
+            color: var(--accent-secondary-light);
+            background: rgba(78, 205, 196, 0.15);
         }
         
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-links a i {
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
         
-        /* Иконка телефона вместо текста */
-        .phone-btn {
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-btn {
             background: var(--gradient-secondary);
             color: var(--dark);
-            padding: 10px;
-            border-radius: 50%;
+            padding: 12px 24px;
+            border-radius: 50px;
             font-weight: 700;
             transition: var(--transition);
             border: none;
             cursor: pointer;
             text-decoration: none;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
-            position: relative;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+            font-size: 0.95rem;
         }
         
-        .phone-btn:hover {
+        .contact-btn:hover {
             background: var(--gradient-accent);
             color: var(--light);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            transform: translateY(-2px);
         }
         
-        .phone-btn:hover::after {
-            content: '+7 (981) 666-66-70';
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: var(--primary);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-            white-space: nowrap;
-            z-index: 1000;
+        .contact-btn i {
+            font-size: 1rem;
         }
         
         .mobile-menu {
             display: none;
-            font-size: 1.5rem;
+            background: rgba(78, 205, 196, 0.1);
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            border-radius: 12px;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
             color: var(--light);
             transition: var(--transition);
+            z-index: 1002;
+            position: relative;
+            align-items: center;
+            justify-content: center;
         }
         
         .mobile-menu:hover {
-            color: var(--accent-secondary);
+            background: rgba(78, 205, 196, 0.2);
+            border-color: rgba(78, 205, 196, 0.5);
+            color: var(--accent-secondary-light);
         }
         
-        /* Hero Section */
-        .hero {
-            height: 60vh;
-            background: 
-                linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), 
-                url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80') center/cover;
+        .mobile-menu i {
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu.active i {
+            transform: rotate(90deg);
+        }
+        
+        .mobile-phone {
+            display: none;
+            background: var(--gradient-secondary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+            transition: var(--transition);
+        }
+
+        .mobile-phone a {
+            color: var(--dark);
+            transition: var(--transition);
             display: flex;
             align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+
+        .mobile-phone:hover {
+            background: var(--gradient-accent);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .mobile-phone:hover a {
+            color: var(--light);
+        }
+        
+        /* Page Header */
+        .page-header {
+            padding: 150px 0 80px;
             text-align: center;
-            padding-top: 80px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             position: relative;
         }
         
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .page-header-content {
             position: relative;
             z-index: 2;
         }
         
-        .hero h1 {
-            font-size: 3rem;
+        .page-header h1 {
+            font-size: 3.5rem;
             margin-bottom: 20px;
             background: linear-gradient(to right, var(--accent-secondary-light), var(--light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
+            animation: fadeInUp 1s ease-out;
         }
         
-        .hero p {
+        .page-header p {
             font-size: 1.3rem;
-            margin-bottom: 30px;
             opacity: 0.9;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
         
-        /* Добавлен блок УТП */
-        .utp-badge {
-            display: inline-block;
-            background: var(--gradient-accent);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-top: 15px;
-            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-block;
-            font-size: 1rem;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            text-align: center;
-            min-width: 180px;
-        }
-        
-        .primary-btn {
-            background: var(--gradient-accent);
-            color: var(--text-light);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
-        }
-        
-        .primary-btn:hover {
-            background: var(--gradient-secondary);
-            color: var(--dark);
-        }
-        
-        .secondary-btn {
-            background: transparent;
-            border: 3px solid var(--accent-secondary-light);
-            color: var(--accent-secondary-light);
-        }
-        
-        .secondary-btn:hover {
-            background: var(--accent-secondary-light);
-            color: var(--dark);
-        }
-        
-        /* Services Section */
-        .section {
+        /* Price Section */
+        .price-section {
             padding: 80px 0;
             position: relative;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            z-index: 2;
+            margin-bottom: 60px;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--accent-secondary-light);
-            display: inline-block;
+            margin-bottom: 15px;
             position: relative;
-            padding-bottom: 15px;
+            display: inline-block;
         }
         
         .section-title h2::after {
             content: '';
             position: absolute;
-            width: 100px;
-            height: 5px;
+            width: 80px;
+            height: 4px;
             background: var(--accent);
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 5px;
+            border-radius: 4px;
         }
         
-        /* Price List Section */
-        .price-section {
-            background: var(--primary-dark);
-            padding: 80px 0;
-            position: relative;
+        .section-title p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-top: 20px;
         }
         
-        .price-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(78, 205, 196, 0.05) 0%, transparent 10%),
-                radial-gradient(circle at 90% 80%, rgba(46, 134, 193, 0.05) 0%, transparent 10%);
-            background-size: 300px 300px;
-            z-index: 1;
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
         }
         
-        .price-container {
-            background: rgba(10, 61, 98, 0.7);
+        .price-card {
+            background: rgba(30, 91, 142, 0.2);
             border-radius: 20px;
-            padding: 40px;
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(78, 205, 196, 0.3);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .price-note {
-            text-align: center;
-            margin: 30px 0;
-            padding: 15px;
-            background: rgba(14, 80, 128, 0.5);
-            border-radius: 10px;
-            font-style: italic;
-            color: var(--accent-secondary-light);
-            border: 1px solid rgba(78, 205, 196, 0.2);
-        }
-        
-        .price-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-        }
-        
-        .price-table th, .price-table td {
-            padding: 15px 20px;
-            text-align: left;
-            border-bottom: 1px solid rgba(78, 205, 196, 0.3);
-        }
-        
-        .price-table th {
-            background: rgba(14, 80, 128, 0.6);
-            color: var(--accent-secondary-light);
-            font-size: 1.2rem;
-        }
-        
-        .price-table tr:hover {
-            background: rgba(30, 91, 142, 0.4);
-        }
-        
-        .price-table .service-name {
-            font-weight: 600;
-            color: var(--accent-secondary-light);
-        }
-        
-        .price-table .price {
-            font-weight: 700;
-            color: var(--gold);
-            white-space: nowrap;
-        }
-        
-        .service-details {
-            margin-top: 10px;
-            font-size: 0.95rem;
-            color: var(--light);
-            opacity: 0.9;
-        }
-        
-        .service-icon {
-            color: var(--accent-secondary);
-            margin-right: 10px;
-            width: 24px;
-            text-align: center;
-        }
-        
-        .price-categories {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-        
-        .price-category {
-            background: rgba(14, 80, 128, 0.6);
-            border-radius: 15px;
-            padding: 25px;
-            flex: 1;
-            min-width: 250px;
-            max-width: 350px;
+            padding: 40px 30px;
             text-align: center;
             transition: var(--transition);
-            border: 1px solid rgba(78, 205, 196, 0.3);
-        }
-        
-        .price-category:hover {
-            transform: translateY(-10px);
             box-shadow: var(--shadow);
-            background: rgba(14, 80, 128, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            position: relative;
+            overflow: hidden;
         }
         
-        .price-category h3 {
-            color: var(--accent-secondary-light);
-            margin-bottom: 20px;
-            font-size: 1.6rem;
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
         }
         
-        .price-category .price-range {
-            font-size: 2rem;
+        .price-card:hover::before {
+            left: 100%;
+        }
+        
+        .price-card:hover {
+            background: rgba(30, 91, 142, 0.35);
+            border-color: rgba(78, 205, 196, 0.4);
+            transform: translateY(-10px);
+        }
+        
+        .price-card.featured {
+            border: 2px solid var(--accent-secondary);
+            background: rgba(78, 205, 196, 0.1);
+            transform: scale(1.05);
+        }
+        
+        .price-card.featured::after {
+            content: 'ПОПУЛЯРНО';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--gradient-accent);
+            color: var(--light);
+            padding: 8px 40px;
+            font-size: 0.8rem;
             font-weight: 700;
+            transform: rotate(45deg);
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+        }
+        
+        .price-icon {
+            font-size: 3rem;
+            color: var(--accent-secondary);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .price-card:hover .price-icon {
+            color: var(--accent-light);
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .price-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--accent-secondary-light);
+        }
+        
+        .price-amount {
+            font-size: 3rem;
+            font-weight: 800;
             color: var(--gold);
-            margin: 15px 0;
+            margin-bottom: 10px;
         }
         
-        .price-category ul {
+        .price-period {
+            font-size: 1rem;
+            opacity: 0.7;
+            margin-bottom: 25px;
+        }
+        
+        .price-features {
             list-style: none;
+            margin-bottom: 30px;
             text-align: left;
-            margin: 20px 0;
         }
         
-        .price-category li {
-            padding: 10px 0;
-            border-bottom: 1px dashed rgba(78, 205, 196, 0.3);
+        .price-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .price-category li:last-child {
+        .price-features i {
+            color: var(--accent-secondary);
+            font-size: 1.1rem;
+            min-width: 20px;
+        }
+        
+        .price-btn {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+        }
+        
+        .price-btn:hover {
+            background: var(--gradient-accent);
+            color: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* Additional Services */
+        .additional-services {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 80px 0;
+            margin-top: 60px;
+        }
+        
+        .services-table {
+            background: rgba(30, 91, 142, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+        
+        .table-header {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .table-header h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .table-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(78, 205, 196, 0.2);
+            transition: var(--transition);
+        }
+        
+        .table-row:hover {
+            background: rgba(78, 205, 196, 0.1);
+        }
+        
+        .table-row:last-child {
             border-bottom: none;
         }
         
-        .price-category li i {
-            color: var(--accent-secondary);
-            margin-right: 10px;
+        .service-name {
+            flex: 1;
+            font-weight: 600;
         }
         
-        /* Animation Effects */
+        .service-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        
+        /* Contact CTA */
+        .contact-cta {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+        }
+        
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-secondary-light);
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-btn.primary {
+            background: var(--gradient-accent);
+            color: var(--light);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+        
+        .cta-btn.primary:hover {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .cta-btn.secondary {
+            background: transparent;
+            border: 2px solid var(--accent-secondary);
+            color: var(--accent-secondary);
+        }
+        
+        .cta-btn.secondary:hover {
+            background: var(--accent-secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            margin-bottom: 30px;
+        }
+        
+        .footer-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-secondary-light);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-secondary-light);
+            transform: translateY(-2px);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+        }
+        
+        .social-links a:hover {
+            background: var(--gradient-accent);
+            color: var(--light);
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            opacity: 0.7;
+        }
+        
+        /* Animations */
         .animate {
             opacity: 0;
             transform: translateY(30px);
@@ -474,27 +677,65 @@
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
         .delay-4 { transition-delay: 0.4s; }
-        .delay-5 { transition-delay: 0.5s; }
         
-        /* Mobile Responsiveness */
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .nav-links a {
+                font-size: 0.95rem;
+                padding: 8px 12px;
+            }
+        }
+
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+                padding: 8px 10px;
+            }
+            
+            .contact-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .price-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .price-card.featured {
+                transform: none;
             }
         }
         
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 0;
                 right: -100%;
-                background: var(--primary-dark);
+                background: linear-gradient(135deg, var(--primary-dark), var(--dark));
                 width: 100%;
-                height: calc(100vh - 70px);
+                height: 100vh;
                 flex-direction: column;
                 align-items: center;
-                padding-top: 60px;
+                justify-content: center;
+                padding: 0;
+                gap: 30px;
                 transition: var(--transition);
+                z-index: 1000;
+                overflow-y: auto;
+                backdrop-filter: blur(20px);
             }
             
             .nav-links.active {
@@ -502,422 +743,416 @@
             }
             
             .nav-links li {
-                margin: 20px 0;
+                margin: 0;
+                width: 80%;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                width: 100%;
+                padding: 20px 30px;
+                font-size: 1.2rem;
+                border-radius: 15px;
+                background: rgba(78, 205, 196, 0.1);
+                border: 1px solid rgba(78, 205, 196, 0.2);
+                justify-content: center;
+                transition: var(--transition);
+            }
+            
+            .nav-links a:hover,
+            .nav-links a.active {
+                background: rgba(78, 205, 196, 0.2);
+                border-color: rgba(78, 205, 196, 0.4);
+                transform: scale(1.05);
+            }
+            
+            .nav-links a i {
+                font-size: 1.1rem;
+                margin-right: 5px;
             }
             
             .mobile-menu {
-                display: block;
+                display: flex;
+                z-index: 1002;
+                position: relative;
             }
             
-            .hero h1 {
-                font-size: 2.2rem;
+            .contact-btn {
+                display: none;
             }
             
-            .hero p {
+            .mobile-phone {
+                display: flex;
+            }
+            
+            .page-header {
+                padding: 120px 0 60px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .table-row {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            nav {
+                padding: 15px 0;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .logo img {
+                height: 35px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .page-header p {
                 font-size: 1.1rem;
             }
             
-            .hero-btns {
-                flex-direction: column;
-                gap: 15px;
+            .mobile-phone {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .mobile-menu {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .mobile-menu i {
+                font-size: 1.3rem;
+            }
+            
+            .price-section {
+                padding: 60px 0;
             }
             
             .section-title h2 {
                 font-size: 2rem;
             }
             
-            .btn {
-                width: 100%;
-                max-width: 280px;
-                padding: 12px 25px;
+            .price-card {
+                padding: 30px 20px;
             }
             
-            .price-container {
-                padding: 20px;
+            .price-amount {
+                font-size: 2.5rem;
             }
             
-            .price-table th, .price-table td {
-                padding: 12px 15px;
-            }
-            
-            .price-table {
-                font-size: 0.9rem;
-            }
-            
-            /* Мобильный номер телефона */
-            .mobile-phone-item {
-                display: block;
-                margin-top: 30px;
-                text-align: center;
-            }
-            
-            .mobile-phone-item a {
-                background: var(--gradient-secondary);
-                color: var(--dark);
-                padding: 12px 25px;
-                border-radius: 50px;
-                font-weight: 700;
-                display: inline-flex;
-                align-items: center;
-            }
-            
-            .mobile-phone-item a i {
-                margin-right: 10px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section {
+            .contact-cta {
                 padding: 60px 0;
             }
             
-            .price-table {
-                display: block;
-                overflow-x: auto;
+            .cta-content h2 {
+                font-size: 2rem;
             }
             
-            .price-table th, .price-table td {
-                min-width: 150px;
+            .container {
+                width: 95%;
+                padding: 0 10px;
             }
             
             .logo {
-                font-size: 1rem;
+                font-size: 1.1rem;
+            }
+            
+            .logo img {
+                height: 30px !important;
+                margin-right: 8px !important;
+            }
+            
+            .nav-links a {
+                padding: 15px 25px;
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Modern Header -->
     <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <i class="fas fa-faucet"></i>
-                    <span>Чистый Источник</span>
-                </a>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Чистый Источник" style="height: 40px; margin-right: 10px;">
+                Чистый Источник
+            </a>
+            <div class="nav-center">
                 <ul class="nav-links">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="index.html#services">Услуги</a></li>
-                    <li><a href="price.html" class="active">Прайс</a></li>  
-                    <li><a href="index.html#about">О нас</a></li>
-                    <li><a href="index.html#contact">Контакты</a></li>
-                    <li class="mobile-phone-item">
-                        <a href="tel:+79816666670">
-                            <i class="fas fa-phone"></i>+7 (981) 666-66-70
-                        </a>
-                    </li>
+                    <li><a href="index.html"><i class="fas fa-home"></i>Главная</a></li>
+                    <li><a href="index.html#services"><i class="fas fa-tools"></i>Услуги</a></li>
+                    <li><a href="index.html#about"><i class="fas fa-info-circle"></i>О нас</a></li>
+                    <li><a href="gallery.html"><i class="fas fa-images"></i>Галерея</a></li>
+                    <li><a href="price.html" class="active"><i class="fas fa-ruble-sign"></i>Цены</a></li>
+                    <li><a href="promotions.html"><i class="fas fa-percent"></i>Акции</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-envelope"></i>Контакты</a></li>
                 </ul>
-                <a href="tel:+79816666670" class="phone-btn">
+            </div>
+            <div class="nav-actions">
+                <a href="tel:+79123456789" class="contact-btn">
                     <i class="fas fa-phone"></i>
+                    Позвонить
                 </a>
+                <div class="mobile-phone">
+                    <a href="tel:+79123456789">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="animate">Прайс-лист на услуги</h1>
-                <p class="animate delay-1">Прозрачное ценообразование и профессиональный подход к каждому клиенту</p>
-                
-                <!-- Добавлен блок УТП -->
-                <div class="utp-badge animate delay-2">
-                    <i class="fas fa-bolt"></i> Бесплатный выезд и диагностика при заказе услуг!
-                </div>
-                
-                <div class="hero-btns">
-                    <a href="#price-table" class="btn primary-btn animate delay-3">Смотреть цены</a>
-                    <a href="index.html#contact" class="btn secondary-btn animate delay-4">Заказать звонок</a>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <div class="page-header-content">
+                    <h1>Прайс-лист</h1>
+                    <p>Прозрачные цены на все виды услуг по чистке и обслуживанию колодцев</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Price Section -->
-    <section class="section price-section" id="price">
-        <div class="container">
-            <div class="section-title">
-                <h2>Наши цены</h2>
-                <p>Качественные услуги по доступным ценам</p>
-            </div>
-            
-            <div class="price-container animate">
-                <div class="price-note">
-                    <p><i class="fas fa-info-circle"></i> Цены указаны за стандартные работы. Окончательная стоимость может меняться в зависимости от глубины колодца, сложности работ и удаленности объекта. Все цены включают НДС.</p>
+        <section class="price-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Основные услуги</h2>
+                    <p>Выберите подходящий пакет услуг для вашего колодца</p>
                 </div>
                 
-                <div class="price-categories">
-                    <div class="price-category animate delay-1">
-                        <h3><i class="fas fa-broom"></i> Чистка колодцев</h3>
-                        <div class="price-range">от 10 000 руб.</div>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Удаление ила и мусора</li>
-                            <li><i class="fas fa-check"></i> Очистка стен от налета</li>
-                            <li><i class="fas fa-check"></i> Дезинфекция шахты</li>
-                            <li><i class="fas fa-check"></i> Проверка герметичности</li>
-                            <li><i class="fas fa-check"></i> Гарантия 1 год</li>
+                <div class="price-grid">
+                    <div class="price-card animate">
+                        <div class="price-icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <h3>Базовая чистка</h3>
+                        <div class="price-amount">8 500₽</div>
+                        <div class="price-period">за колодец</div>
+                        <ul class="price-features">
+                            <li><i class="fas fa-check"></i> Очистка от ила и песка</li>
+                            <li><i class="fas fa-check"></i> Промывка стенок</li>
+                            <li><i class="fas fa-check"></i> Удаление мусора</li>
+                            <li><i class="fas fa-check"></i> Базовая дезинфекция</li>
+                            <li><i class="fas fa-check"></i> Гарантия 6 месяцев</li>
                         </ul>
+                        <a href="tel:+79123456789" class="price-btn">Заказать</a>
                     </div>
-                    
-                    <div class="price-category animate delay-2">
-                        <h3><i class="fas fa-tools"></i> Ремонтные работы</h3>
-                        <div class="price-range">от 5 000 руб.</div>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Устранение смещения колец</li>
-                            <li><i class="fas fa-check"></i> Гидроизоляция швов</li>
-                            <li><i class="fas fa-check"></i> Скобирование колец</li>
-                            <li><i class="fas fa-check"></i> Замена поврежденных элементов</li>
-                            <li><i class="fas fa-check"></i> Гарантия 1 года</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="price-category animate delay-3">
-                        <h3><i class="fas fa-wind"></i> Специальные услуги</h3>
-                        <div class="price-range">от 6 000 руб.</div>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Устранение запаха</li>
-                            <li><i class="fas fa-check"></i> Установка донного фильтра</li>
-                            <li><i class="fas fa-check"></i> Замена насосного оборудования</li>
-                            <li><i class="fas fa-check"></i> Химический анализ воды</li>
+
+                    <div class="price-card featured animate delay-1">
+                        <div class="price-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Комплексная чистка</h3>
+                        <div class="price-amount">12 500₽</div>
+                        <div class="price-period">за колодец</div>
+                        <ul class="price-features">
+                            <li><i class="fas fa-check"></i> Полная очистка колодца</li>
+                            <li><i class="fas fa-check"></i> Профессиональная дезинфекция</li>
+                            <li><i class="fas fa-check"></i> Замена донного фильтра</li>
+                            <li><i class="fas fa-check"></i> Анализ качества воды</li>
+                            <li><i class="fas fa-check"></i> Гарантия 2 года</li>
                             <li><i class="fas fa-check"></i> Консультация специалиста</li>
                         </ul>
+                        <a href="tel:+79123456789" class="price-btn">Заказать</a>
+                    </div>
+
+                    <div class="price-card animate delay-2">
+                        <div class="price-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Ремонт + чистка</h3>
+                        <div class="price-amount">18 000₽</div>
+                        <div class="price-period">за колодец</div>
+                        <ul class="price-features">
+                            <li><i class="fas fa-check"></i> Полная чистка</li>
+                            <li><i class="fas fa-check"></i> Ремонт колец</li>
+                            <li><i class="fas fa-check"></i> Герметизация швов</li>
+                            <li><i class="fas fa-check"></i> Гидроизоляция</li>
+                            <li><i class="fas fa-check"></i> Замена фильтров</li>
+                            <li><i class="fas fa-check"></i> Гарантия 3 года</li>
+                        </ul>
+                        <a href="tel:+79123456789" class="price-btn">Заказать</a>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="additional-services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Дополнительные услуги</h2>
+                    <p>Расширенный перечень услуг для полного обслуживания вашего колодца</p>
+                </div>
                 
-                <table class="price-table" id="price-table">
-                    <thead>
-                        <tr>
-                            <th>Услуга</th>
-                            <th>Описание</th>
-                            <th>Цена</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="animate">
-                            <td>
-                                <div class="service-name">
-                                    <i class="fas fa-hand-holding-water service-icon"></i>
-                                    Глубокая чистка колодца
-                                </div>
-                            </td>
-                            <td>
-                                Полная очистка от ила, песка, мусора и бактерий. Восстановление качества питьевой воды до санитарных норм.
-                                <div class="service-details">
-                                    <i class="fas fa-clock"></i> Время выполнения: 4-6 часов<br>
-                                    <i class="fas fa-shield-alt"></i> Гарантия: 1 год
-                                </div>
-                            </td>
-                            <td class="price">от 10 000 руб.</td>
-                        </tr>
-                        
-                        <tr class="animate delay-1">
-                            <td>
-                                <div class="service-name">
-                                    <i class="fas fa-tools service-icon"></i>
-                                    Ремонт колодца
-                                </div>
-                            </td>
-                            <td>
-                                Устранение трещин, смещений колец, восстановление герметичности швов и укрепление конструкции.
-                                <div class="service-details">
-                                    <i class="fas fa-clock"></i> Время выполнения: 1-2 дня<br>
-                                    <i class="fas fa-shield-alt"></i> Гарантия: 1 года
-                                </div>
-                            </td>
-                            <td class="price">от 5 000 руб.</td>
-                        </tr>
-                        
-                        <tr class="animate delay-2">
-                            <td>
-                                <div class="service-name">
-                                    <i class="fas fa-wind service-icon"></i>
-                                    Устранение запаха
-                                </div>
-                            </td>
-                            <td>
-                                Эффективное удаление сероводорода и других неприятных запахов, дезинфекция колодца.
-                                <div class="service-details">
-                                    <i class="fas fa-clock"></i> Время выполнения: 3-4 часа<br>
-                                    <i class="fas fa-shield-alt"></i> Гарантия: 6 месяцев
-                                </div>
-                            </td>
-                            <td class="price">от 6 000 руб.</td>
-                        </tr>
-                        
-                        <tr class="animate delay-1">
-                            <td>
-                                <div class="service-name">
-                                    <i class="fas fa-link service-icon"></i>
-                                    Скобирование колец
-                                </div>
-                            </td>
-                            <td>
-                                Скрепление бетонных колец металлическими скобами для предотвращения смещения и деформации.
-                                <div class="service-details">
-                                    <i class="fas fa-clock"></i> Время выполнения: 1 день<br>
-                                    <i class="fas fa-shield-alt"></i> Гарантия: 1 года
-                                </div>
-                            </td>
-                            <td class="price">от 1 500 руб./кольцо</td>
-                        </tr>
-                        
-                        <tr class="animate delay-2">
-                            <td>
-                                <div class="service-name">
-                                    <i class="fas fa-paint-roller service-icon"></i>
-                                    Гидропломба швов
-                                </div>
-                            </td>
-                            <td>
-                                Герметизация швов между кольцами специальными гидроизоляционными составами.
-                                <div class="service-details">
-                                    <i class="fas fa-clock"></i> Время выполнения: 4-8 часов<br>
-                                    <i class="fas fa-shield-alt"></i> Гарантия: 1 лет
-                                </div>
-                            </td>
-                            <td class="price">от 2 000 руб./шов</td>
-                        </tr>
-                        
-                        <tr class="animate delay-3">
-                            <td>
-                                <div class="service-name">
-                                    <i class="fas fa-tint-slash service-icon"></i>
-                                    Замена насосов
-                                </div>
-                            </td>
-                            <td>
-                                Установка, замена и ремонт насосного оборудования любой сложности.
-                                <div class="service-details">
-                                    <i class="fas fa-clock"></i> Время выполнения: 2-4 часа<br>
-                                    <i class="fas fa-shield-alt"></i> Гарантия: 1 год на оборудование
-                                </div>
-                            </td>
-                            <td class="price">от 5 000 руб.</td>
-                        </tr>
-                        
-                        <tr class="animate delay-1">
-                            <td>
-                                <div class="service-name">
-                                    <i class="fas fa-search service-icon"></i>
-                                    Диагностика колодца
-                                </div>
-                            </td>
-                            <td>
-                                Комплексная проверка состояния колодца, качества воды и выявление проблем.
-                                <div class="service-details">
-                                    <i class="fas fa-clock"></i> Время выполнения: 1-2 часа<br>
-                                    <i class="fas fa-shield-alt"></i> Бесплатный отчет
-                                </div>
-                            </td>
-                            <td class="price">от 3 000 руб.</td>
-                        </tr>
-                        
-                        <tr class="animate delay-2">
-                            <td>
-                                <div class="service-name">
-                                    <i class="fas fa-filter service-icon"></i>
-                                    Установка донного фильтра
-                                </div>
-                            </td>
-                            <td>
-                                Установка фильтра из натуральных материалов (щебень, шунгит) для очистки воды.
-                                <div class="service-details">
-                                    <i class="fas fa-clock"></i> Время выполнения: 2-3 часа<br>
-                                    <i class="fas fa-shield-alt"></i> Гарантия: 1 года
-                                </div>
-                            </td>
-                            <td class="price">от 7 000 руб.</td>
-                        </tr>
-                        
-                        <tr class="animate delay-3">
-                            <td>
-                                <div class="service-name">
-                                    <i class="fas fa-flask service-icon"></i>
-                                    Дезинфекция воды
-                                </div>
-                            </td>
-                            <td>
-                                Обработка воды специальными составами для уничтожения бактерий и вирусов.
-                                <div class="service-details">
-                                    <i class="fas fa-clock"></i> Время выполнения: 2 часа + 24 часа отстой<br>
-                                    <i class="fas fa-shield-alt"></i> Гарантия: 3 месяца
-                                </div>
-                            </td>
-                            <td class="price">от 4 000 руб.</td>
-                        </tr>
-                        
-                        <tr class="animate delay-1">
-                            <td>
-                                <div class="service-name">
-                                    <i class="fas fa-headset service-icon"></i>
-                                    Консультация специалиста
-                                </div>
-                            </td>
-                            <td>
-                                Выезд специалиста на объект для оценки состояния колодца и рекомендаций.
-                                <div class="service-details">
-                                    <i class="fas fa-clock"></i> Время выполнения: 1-1.5 часа<br>
-                                    <i class="fas fa-shield-alt"></i> Бесплатно при заказе услуг
-                                </div>
-                            </td>
-                            <td class="price">Бесплатно*</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="price-note">
-                    <p><i class="fas fa-exclamation-circle"></i> *Консультация специалиста бесплатна при последующем заказе любой услуги. При отказе от услуг стоимость консультации составляет 2 000 руб.</p>
+                <div class="services-table animate">
+                    <div class="table-header">
+                        <h3>Прайс дополнительных услуг</h3>
+                    </div>
+                    <div class="table-row">
+                        <div class="service-name">Углубление колодца (за кольцо)</div>
+                        <div class="service-price">4 500₽</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="service-name">Установка донного фильтра</div>
+                        <div class="service-price">2 800₽</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="service-name">Лабораторный анализ воды</div>
+                        <div class="service-price">2 200₽</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="service-name">Экстренный выезд (24/7)</div>
+                        <div class="service-price">+1 500₽</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="service-name">Выезд за город (за км)</div>
+                        <div class="service-price">50₽</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="service-name">Консультация специалиста</div>
+                        <div class="service-price">Бесплатно</div>
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <section class="contact-cta">
+            <div class="container">
+                <div class="cta-content animate">
+                    <h2>Нужна консультация?</h2>
+                    <p>Наши специалисты помогут выбрать оптимальный пакет услуг для вашего колодца</p>
+                    <div class="cta-buttons">
+                        <a href="tel:+79123456789" class="cta-btn primary">
+                            <i class="fas fa-phone"></i>
+                            Позвонить сейчас
+                        </a>
+                        <a href="index.html#contact" class="cta-btn secondary">
+                            <i class="fas fa-envelope"></i>
+                            Написать нам
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Чистый Источник</h3>
+                <div class="footer-links">
+                    <a href="index.html"><i class="fas fa-home"></i> Главная</a>
+                    <a href="index.html#services"><i class="fas fa-tools"></i> Услуги</a>
+                    <a href="gallery.html"><i class="fas fa-images"></i> Галерея</a>
+                    <a href="promotions.html"><i class="fas fa-percent"></i> Акции</a>
+                    <a href="tel:+79123456789"><i class="fas fa-phone"></i> +7 (912) 345-67-89</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Чистый Источник. Все права защищены.</p>
+            </div>
         </div>
-    </section>
+    </footer>
 
     <script>
         // Mobile menu toggle
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
-        const menuIcon = mobileMenu.querySelector('i');
-        
+
         mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            menuIcon.classList.toggle('fa-bars');
-            menuIcon.classList.toggle('fa-times');
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
-        
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                menuIcon.classList.add('fa-bars');
-                menuIcon.classList.remove('fa-times');
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenu.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+                document.body.style.overflow = '';
             });
         });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            header.classList.toggle('scrolled', window.scrollY > 50);
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenu.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+                document.body.style.overflow = '';
+            }
         });
-        
-        // Animation on scroll
+
+        // Header hide/show on scroll
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Animate elements on scroll
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -925,10 +1160,11 @@
                 }
             });
         }, observerOptions);
-        
+
         document.querySelectorAll('.animate').forEach(el => {
             observer.observe(el);
         });
     </script>
 </body>
 </html>
+
