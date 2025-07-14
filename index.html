@@ -287,7 +287,7 @@
             height: 100vh;
             background: 
                 linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), 
-                url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80') center/cover;
+                url("images/kolodec11.jpg") center/cover;
             display: flex;
             align-items: center;
             text-align: center;
@@ -332,6 +332,58 @@
             font-size: 1.2rem;
             color: var(--light);
             opacity: 0.9;
+        }
+        
+        /* Timer Styles */
+        .timer-container {
+            margin-top: 20px;
+        }
+        
+        .timer-text {
+            font-size: 1rem;
+            color: var(--light);
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .timer-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .timer-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 10px;
+            min-width: 60px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .timer-unit span:first-child {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--light);
+            line-height: 1;
+        }
+        
+        .timer-label {
+            font-size: 0.8rem;
+            color: var(--light);
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        .timer-separator {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--light);
+            opacity: 0.7;
         }
         
         .hero h1 {
@@ -999,6 +1051,10 @@
                 display: flex;
             }
             
+            .mobile-phone:hover a {
+                color: var(--light) !important;
+            }
+            
             /* Hero Section Mobile */
             .hero {
                 padding: 120px 0 80px;
@@ -1467,16 +1523,38 @@
                             <span>🔄 Замена насосов</span>
                             <span>🛡️ Дезинфекция</span>
                             <span>📍 По всей Московской области</span>
+                      <div class="utp-banner animate delay-2">
+                    <div class="container">
+                        <div class="utp-content">
+                            <h3>🚀 ЭКСКЛЮЗИВНОЕ ПРЕДЛОЖЕНИЕ!</h3>
+                            <p>Чистка колодца + дезинфекция + гарантия 2 года = всего <span class="utp-price">8000₽</span></p>
+                            <div class="timer-container">
+                                <p class="timer-text">До конца акции осталось:</p>
+                                <div class="timer-display">
+                                    <div class="timer-unit">
+                                        <span class="timer-days">00</span>
+                                        <span class="timer-label">дней</span>
+                                    </div>
+                                    <div class="timer-separator">:</div>
+                                    <div class="timer-unit">
+                                        <span class="timer-hours">00</span>
+                                        <span class="timer-label">часов</span>
+                                    </div>
+                                    <div class="timer-separator">:</div>
+                                    <div class="timer-unit">
+                                        <span class="timer-minutes">00</span>
+                                        <span class="timer-label">минут</span>
+                                    </div>
+                                    <div class="timer-separator">:</div>
+                                    <div class="timer-unit">
+                                        <span class="timer-seconds">00</span>
+                                        <span class="timer-label">секунд</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- УТП Banner -->
-                    <div class="utp-banner">
-                        <div class="utp-text">🚀 ЭКСКЛЮЗИВНОЕ ПРЕДЛОЖЕНИЕ!</div>
-                        <div class="utp-subtext">Чистка колодца + дезинфекция + гарантия 2 года = всего 8000₽</div>
-                    </div>
-                    
-                    <h1>Профессиональная чистка колодцев</h1>
+                </div>h1>Профессиональная чистка колодцев</h1>
                     <p>Обеспечиваем кристально чистую воду для вашего дома по всей Московской области. Опыт работы более 10 лет, современное оборудование и гарантия качества до 3 лет.</p>
                     <div class="hero-btns">
                         <a href="tel:+79650314609" class="btn primary-btn">Заказать чистку</a>
@@ -1859,18 +1937,37 @@
                 return;
             }
             
-            // Simulate form submission
+            // Submit form
             const submitBtn = this.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Отправляется...';
             submitBtn.disabled = true;
             
-            setTimeout(() => {
-                alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
-                this.reset();
+            // Send to PHP handler
+            fetch('contact_handler.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+                    this.reset();
+                } else {
+                    alert('Ошибка: ' + result.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Произошла ошибка при отправке заявки. Попробуйте позвонить нам напрямую.');
+            })
+            .finally(() => {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
-            }, 2000);
+            });
         });
 
         // Counter animation for stats
@@ -1907,6 +2004,7 @@
             statsObserver.observe(statsSection);
         }
     </script>
+    <script src="timer.js"></script>
 </body>
 </html>
 
