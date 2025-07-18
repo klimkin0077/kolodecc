@@ -65,14 +65,7 @@
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.4s ease, background 0.4s ease;
             backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(78, 205, 196, 0.2);
-            transform: translateY(0);
         }
-        
-        header.hidden {
-            transform: translateY(-100%);
-        }
-        
         nav {
             display: flex;
             justify-content: space-between;
@@ -82,50 +75,14 @@
             width: 100%;
         }
         
-        .nav-center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            justify-content: center;
-        }            display: flex;
-            align-items: center;
-            text-decoration: none;
-            transition: var(--transition);
-            z-index: 1002;
-        }
-        
-        .logo:hover {
-            transform: scale(1.05);
-        }
-        
-        .logo img {
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-        
-        .logo:hover img {
-            transform: rotate(5deg);
-        }
-        
-        .nav-center {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
         .nav-links {
             display: flex;
             list-style: none;
-            align-items: center;
-            gap: 25px;
+            gap: 30px;
+            margin: 0 auto; /* Center the nav links */
         }
         
-        .nav-links li {
-            position: relative;
-        }
-        
-        .nav-links a {
+        .nav-links li a {
             color: var(--light);
             text-decoration: none;
             font-weight: 600;
@@ -139,26 +96,22 @@
             gap: 8px;
         }
         
-        .nav-links a:hover {
+        .nav-links li a:hover {
             color: var(--accent-secondary-light);
             background: rgba(78, 205, 196, 0.1);
         }
         
-        .nav-links a.active {
+        .nav-links li a.active {
             color: var(--accent-secondary-light);
             background: rgba(78, 205, 196, 0.15);
         }
         
-        .nav-links a i {
+        .nav-links li a i {
             font-size: 0.9rem;
             opacity: 0.8;
         }
         
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+
         
         .contact-btn {
             background: var(--gradient-secondary);
@@ -386,6 +339,71 @@
             opacity: 0.7;
         }
         
+        /* UTP Description Styles */
+        .utp-description {
+            margin-top: 50px;
+            padding: 40px 30px;
+            background: rgba(30, 91, 142, 0.15);
+            border-radius: 20px;
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .utp-description h3 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--accent-secondary-light);
+            margin-bottom: 30px;
+        }
+        
+        .utp-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .utp-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(10, 61, 98, 0.3);
+            border-radius: 15px;
+            transition: var(--transition);
+            border: 1px solid rgba(78, 205, 196, 0.1);
+        }
+        
+        .utp-feature:hover {
+            background: rgba(10, 61, 98, 0.5);
+            border-color: rgba(78, 205, 196, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .utp-feature i {
+            font-size: 2.5rem;
+            color: var(--accent-secondary);
+            min-width: 50px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .utp-feature:hover i {
+            color: var(--accent-light);
+            transform: scale(1.1);
+        }
+        
+        .utp-feature h4 {
+            font-size: 1.3rem;
+            color: var(--accent-secondary-light);
+            margin-bottom: 8px;
+        }
+        
+        .utp-feature p {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 25px;
@@ -576,33 +594,36 @@
             position: relative;
         }
         
-        .about-content {
+        .about-c        .logo {
             display: flex;
             align-items: center;
-            gap: 60px;
-            position: relative;
-            z-index: 2;
+            text-decoration: none;
+            transition: var(--transition);
+            z-index: 1002;
+            color: var(--light);
+            font-weight: 700;
+            font-size: 1.3rem;
         }
         
-        .about-text {
-            flex: 1;
+        .logo:hover {
+            transform: scale(1.05);
         }
         
-        .about-text h2 {
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            color: var(--accent-light);
+        .logo img {
+            border-radius: 8px;
+            transition: var(--transition);
         }
         
-        .benefits {
-            margin-top: 40px;
+        .logo:hover img {
+            transform: rotate(5deg);
         }
         
-        .benefit {
+        .nav-actions {
             display: flex;
             align-items: center;
-            margin-bottom: 25px;
-            padding: 15px 20px;
+            gap: 15px;
+            margin-left: auto; /* Push actions to the right */
+        }dding: 15px 20px;
             background: rgba(30, 91, 142, 0.2);
             border-radius: 15px;
             transition: var(--transition);
@@ -1012,7 +1033,7 @@
                 text-align: center;
             }
             
-            .nav-links a {
+            .nav-links li a {
                 width: 100%;
                 padding: 18px 25px;
                 font-size: 1.1rem;
@@ -1024,15 +1045,15 @@
                 font-weight: 600;
             }
             
-            .nav-links a:hover,
-            .nav-links a.active {
+            .nav-links li a:hover,
+            .nav-links li a.active {
                 background: rgba(78, 205, 196, 0.2);
                 border-color: rgba(78, 205, 196, 0.4);
                 transform: scale(1.02);
                 box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
             }
             
-            .nav-links a i {
+            .nav-links li a i {
                 font-size: 1rem;
                 margin-right: 8px;
             }
@@ -1482,17 +1503,15 @@
                 <img src="logo.png" alt="Чистый Источник" style="height: 40px; margin-right: 10px;">
                 Чистый Источник
             </a>
-            <div class="nav-center">
-                <ul class="nav-links">
-                    <li><a href="#home" class="active"><i class="fas fa-home"></i>Главная</a></li>
-                    <li><a href="#services"><i class="fas fa-tools"></i>Услуги</a></li>
-                    <li><a href="#about"><i class="fas fa-info-circle"></i>О нас</a></li>
-                    <li><a href="gallery.html"><i class="fas fa-images"></i>Галерея</a></li>
-                    <li><a href="price.html"><i class="fas fa-ruble-sign"></i>Цены</a></li>
-                    <li><a href="promotions.html"><i class="fas fa-percent"></i>Акции</a></li>
-                    <li><a href="#contact"><i class="fas fa-envelope"></i>Контакты</a></li>
-                </ul>
-            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active"><i class="fas fa-home"></i>Главная</a></li>
+                <li><a href="#services"><i class="fas fa-tools"></i>Услуги</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i>О нас</a></li>
+                <li><a href="gallery.html"><i class="fas fa-images"></i>Галерея</a></li>
+                <li><a href="price.html"><i class="fas fa-ruble-sign"></i>Цены</a></li>
+                <li><a href="promotions.html"><i class="fas fa-percent"></i>Акции</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i>Контакты</a></li>
+            </ul>
             <div class="nav-actions">
                 <a href="tel:+79650314609" class="contact-btn">
                     <i class="fas fa-phone"></i>
@@ -1523,8 +1542,14 @@
                             <span>🔄 Замена насосов</span>
                             <span>🛡️ Дезинфекция</span>
                             <span>📍 По всей Московской области</span>
-                      <div class="utp-banner animate delay-2">
-                    <div class="container">
+                        </div>
+                    </div>
+                    
+                    <h1>Профессиональная чистка колодцев</h1>
+                    <p>Обеспечиваем кристально чистую воду для вашего дома по всей Московской области. Опыт работы более 10 лет, современное оборудование и гарантия качества до 3 лет.</p>
+                    
+                    <!-- УТП Баннер -->
+                    <div class="utp-banner animate delay-2">
                         <div class="utp-content">
                             <h3>🚀 ЭКСКЛЮЗИВНОЕ ПРЕДЛОЖЕНИЕ!</h3>
                             <p>Чистка колодца + дезинфекция + гарантия 2 года = всего <span class="utp-price">8000₽</span></p>
@@ -1554,11 +1579,45 @@
                             </div>
                         </div>
                     </div>
-                </div>h1>Профессиональная чистка колодцев</h1>
-                    <p>Обеспечиваем кристально чистую воду для вашего дома по всей Московской области. Опыт работы более 10 лет, современное оборудование и гарантия качества до 3 лет.</p>
+                    
                     <div class="hero-btns">
                         <a href="tel:+79650314609" class="btn primary-btn">Заказать чистку</a>
                         <a href="#services" class="btn secondary-btn">Наши услуги</a>
+                    </div>
+                    
+                    <!-- Подробное описание УТП -->
+                    <div class="utp-description animate delay-3">
+                        <h3>Почему именно мы?</h3>
+                        <div class="utp-features">
+                            <div class="utp-feature">
+                                <i class="fas fa-award"></i>
+                                <div>
+                                    <h4>Опыт 10+ лет</h4>
+                                    <p>Более 500 успешно очищенных колодцев по всей Московской области</p>
+                                </div>
+                            </div>
+                            <div class="utp-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <h4>Гарантия 2 года</h4>
+                                    <p>Официальная гарантия на все виды работ с документальным подтверждением</p>
+                                </div>
+                            </div>
+                            <div class="utp-feature">
+                                <i class="fas fa-tools"></i>
+                                <div>
+                                    <h4>Современное оборудование</h4>
+                                    <p>Профессиональные насосы, дезинфицирующие средства и инструменты</p>
+                                </div>
+                            </div>
+                            <div class="utp-feature">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Быстрый выезд</h4>
+                                    <p>Приезжаем в день обращения, экстренные вызовы - круглосуточно</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
