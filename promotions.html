@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Чистый Источник | Акции и скидки</title>
+    <title>Акции | Чистый Источник | Профессиональная чистка колодцев</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-dark: #0a3d62;
@@ -52,69 +51,52 @@
             padding: 0 15px;
         }
         
-        /* Header Styles - Identical to main page */
+        /* Modern Header Styles */
         header {
-            background: rgba(10, 61, 98, 0.98);
+            background: rgba(10, 61, 98, 0.95);
             position: fixed;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--shadow);
             transition: transform 0.4s ease, background 0.4s ease;
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(78, 205, 196, 0.2);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(78, 205, 196, 0.3);
             transform: translateY(0);
-        }
-        
-        header.hidden {
-            transform: translateY(-100%);
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
-            position: relative;
+            padding: 15px 0;
         }
         
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--accent-secondary-light);
             display: flex;
             align-items: center;
             text-decoration: none;
             transition: var(--transition);
-            z-index: 1002;
         }
         
         .logo:hover {
             transform: scale(1.05);
         }
         
-        .logo img {
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-        
-        .logo:hover img {
-            transform: rotate(5deg);
-        }
-        
-        .nav-center {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+        .logo i {
+            margin-right: 10px;
+            color: var(--light);
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-            align-items: center;
-            gap: 25px;
         }
         
         .nav-links li {
+            margin-left: 30px;
             position: relative;
         }
         
@@ -124,223 +106,197 @@
             font-weight: 600;
             transition: var(--transition);
             position: relative;
-            font-size: 1rem;
-            padding: 10px 15px;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 1.1rem;
+            padding: 8px 0;
         }
         
         .nav-links a:hover {
             color: var(--accent-secondary-light);
-            background: rgba(78, 205, 196, 0.1);
         }
         
         .nav-links a.active {
             color: var(--accent-secondary-light);
-            background: rgba(78, 205, 196, 0.15);
         }
         
-        .nav-links a i {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-secondary);
+            bottom: 0;
+            left: 0;
         }
         
         .contact-btn {
             background: var(--gradient-secondary);
             color: var(--dark);
-            padding: 12px 24px;
+            padding: 12px 25px;
             border-radius: 50px;
             font-weight: 700;
             transition: var(--transition);
             border: none;
             cursor: pointer;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
-            font-size: 0.95rem;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
         }
         
         .contact-btn:hover {
             background: var(--gradient-accent);
             color: var(--light);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-            transform: translateY(-2px);
-        }
-        
-        .contact-btn i {
-            font-size: 1rem;
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
         }
         
         .mobile-menu {
             display: none;
-            background: rgba(78, 205, 196, 0.1);
-            border: 2px solid rgba(78, 205, 196, 0.3);
-            border-radius: 12px;
-            width: 50px;
-            height: 50px;
+            font-size: 1.8rem;
             cursor: pointer;
             color: var(--light);
             transition: var(--transition);
-            z-index: 1002;
-            position: relative;
-            align-items: center;
-            justify-content: center;
         }
         
         .mobile-menu:hover {
-            background: rgba(78, 205, 196, 0.2);
-            border-color: rgba(78, 205, 196, 0.5);
-            color: var(--accent-secondary-light);
+            color: var(--accent-secondary);
         }
         
-        .mobile-menu i {
-            font-size: 1.5rem;
-            transition: var(--transition);
+        /* Яркое УТП в шапке (только для ПК) */
+        .header-utp {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 15px;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
         }
         
-        .mobile-menu.active i {
-            transform: rotate(90deg);
-        }
-        
-        .mobile-phone {
-            display: none;
-            background: var(--gradient-secondary);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
-            transition: var(--transition);
-        }
-
-        .mobile-phone a {
-            color: var(--dark);
-            transition: var(--transition);
+        /* Hero Section - Акции */
+        .promo-hero {
+            height: 70vh;
+            background: 
+                linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), 
+                url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80') center/cover;
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            text-decoration: none;
-        }
-
-        .mobile-phone:hover {
-            background: var(--gradient-accent);
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-        }
-
-        .mobile-phone:hover a {
-            color: var(--light);
-        }
-        
-        /* Page Header */
-        .page-header {
-            padding: 150px 0 80px;
             text-align: center;
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            padding-top: 80px;
             position: relative;
+            overflow: hidden;
         }
         
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80') center/cover;
-            opacity: 0.1;
-            z-index: 1;
-        }
-        
-        .page-header-content {
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
             position: relative;
             z-index: 2;
         }
         
-        .page-header h1 {
+        .hero-content h1 {
             font-size: 3.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             background: linear-gradient(to right, var(--accent-secondary-light), var(--light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: fadeInUp 1s ease-out;
+            letter-spacing: -0.5px;
         }
         
-        .page-header p {
-            font-size: 1.3rem;
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
             opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-            animation: fadeInUp 1s ease-out 0.3s both;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: wrap;
         }
         
-        /* Promotions Section */
-        .promotions-section {
-            padding: 80px 0;
+        .btn {
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-align: center;
+            min-width: 200px;
+        }
+        
+        .primary-btn {
+            background: var(--gradient-accent);
+            color: var(--text-light);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+        
+        .primary-btn:hover {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+        }
+        
+        .secondary-btn {
+            background: transparent;
+            border: 3px solid var(--accent-secondary-light);
+            color: var(--accent-secondary-light);
+        }
+        
+        .secondary-btn:hover {
+            background: var(--accent-secondary-light);
+            color: var(--dark);
+        }
+        
+        /* Акции */
+        .section {
+            padding: 100px 0;
             position: relative;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
+            position: relative;
+            z-index: 2;
         }
         
         .section-title h2 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             color: var(--accent-secondary-light);
-            margin-bottom: 15px;
-            position: relative;
             display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
         }
         
         .section-title h2::after {
             content: '';
             position: absolute;
-            width: 80px;
-            height: 4px;
+            width: 100px;
+            height: 5px;
             background: var(--accent);
-            bottom: -10px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 4px;
+            border-radius: 5px;
         }
         
-        .section-title p {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            margin-top: 20px;
-        }
-        
+        /* Блок с акциями */
         .promotions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
-            margin-bottom: 60px;
+            margin-top: 50px;
         }
         
         .promotion-card {
@@ -356,310 +312,275 @@
             overflow: hidden;
         }
         
-        .promotion-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s;
-        }
-        
-        .promotion-card:hover::before {
-            left: 100%;
-        }
-        
         .promotion-card:hover {
+            transform: translateY(-10px);
             background: rgba(30, 91, 142, 0.35);
             border-color: rgba(78, 205, 196, 0.4);
-            transform: translateY(-10px);
         }
         
-        .promotion-card.hot {
-            border: 2px solid var(--accent);
-            background: rgba(255, 107, 107, 0.1);
-        }
-        
-        .promotion-card.hot::after {
-            content: 'ГОРЯЧЕЕ ПРЕДЛОЖЕНИЕ!';
+        .promotion-badge {
             position: absolute;
             top: 20px;
-            right: -40px;
+            right: -35px;
             background: var(--gradient-accent);
-            color: var(--light);
-            padding: 8px 50px;
-            font-size: 0.8rem;
+            color: white;
+            padding: 8px 40px;
             font-weight: 700;
             transform: rotate(45deg);
-            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
         }
         
         .promotion-icon {
             font-size: 3.5rem;
             color: var(--accent-secondary);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             transition: var(--transition);
+            display: inline-block;
         }
         
         .promotion-card:hover .promotion-icon {
             color: var(--accent-light);
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1);
         }
         
         .promotion-card h3 {
-            font-size: 2rem;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             color: var(--accent-secondary-light);
         }
         
-        .promotion-discount {
-            font-size: 3.5rem;
+        .promotion-price {
+            font-size: 2.5rem;
             font-weight: 800;
-            color: var(--accent);
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: var(--accent-secondary-light);
+            margin: 20px 0;
         }
         
-        .promotion-description {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
-            line-height: 1.6;
+        .promotion-price small {
+            font-size: 1rem;
+            text-decoration: line-through;
+            color: var(--accent-light);
+            opacity: 0.7;
         }
         
-        .promotion-validity {
-            font-size: 0.9rem;
-            color: var(--gold);
-            margin-bottom: 25px;
-            font-weight: 600;
+        .promotion-benefits {
+            list-style: none;
+            text-align: left;
+            margin: 25px 0;
+            padding: 0 20px;
         }
         
-        .promotion-btn {
-            background: var(--gradient-accent);
-            color: var(--light);
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-block;
-            width: 100%;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        .promotion-benefits li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
         }
         
-        .promotion-btn:hover {
-            background: var(--gradient-secondary);
-            color: var(--dark);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(78, 205, 196, 0.4);
+        .promotion-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-secondary);
+            font-weight: bold;
         }
         
-        /* Special Offers */
-        .special-offers {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            padding: 80px 0;
-            margin-top: 60px;
+        /* Уникальные УТП */
+        .utp-section {
+            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+            padding: 100px 0;
         }
         
-        .offers-container {
+        .utp-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-top: 50px;
         }
         
-        .offer-card {
-            background: rgba(78, 205, 196, 0.1);
-            border-radius: 15px;
-            padding: 30px;
+        .utp-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
             text-align: center;
             transition: var(--transition);
-            border: 1px solid rgba(78, 205, 196, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(78, 205, 196, 0.2);
         }
         
-        .offer-card:hover {
-            background: rgba(78, 205, 196, 0.2);
-            transform: translateY(-5px);
+        .utp-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
         }
         
-        .offer-icon {
-            font-size: 2.5rem;
+        .utp-icon {
+            font-size: 3rem;
             color: var(--accent-secondary);
-            margin-bottom: 15px;
-        }
-        
-        .offer-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--accent-secondary-light);
-        }
-        
-        .offer-card p {
-            opacity: 0.8;
-            line-height: 1.5;
-        }
-        
-        /* Countdown Timer */
-        .countdown-section {
-            padding: 80px 0;
-            text-align: center;
-            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
-        }
-        
-        .countdown-title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--accent-secondary-light);
-        }
-        
-        .countdown-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.8;
-        }
-        
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .countdown-item {
-            background: rgba(30, 91, 142, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            min-width: 100px;
-            border: 1px solid rgba(78, 205, 196, 0.3);
-        }
-        
-        .countdown-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--accent);
-            display: block;
-        }
-        
-        .countdown-label {
-            font-size: 0.9rem;
-            color: var(--accent-secondary-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* Contact CTA */
-        .contact-cta {
-            text-align: center;
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
-        }
-        
-        .cta-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .cta-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--accent-secondary-light);
-        }
-        
-        .cta-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .cta-btn {
-            padding: 18px 35px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
+            margin-bottom: 25px;
             transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
         }
         
-        .cta-btn.primary {
-            background: var(--gradient-accent);
+        .utp-card:hover .utp-icon {
+            color: var(--accent-light);
+            transform: scale(1.1);
+        }
+        
+        .utp-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-secondary-light);
+        }
+        
+        /* Форма заказа */
+        .order-form-section {
+            background: linear-gradient(to bottom, var(--dark), var(--primary-dark));
+            padding: 100px 0;
+        }
+        
+        .order-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(30, 91, 142, 0.2);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--accent-secondary-light);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            background: rgba(10, 61, 98, 0.4);
             color: var(--light);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+            font-size: 1.1rem;
+            transition: var(--transition);
         }
         
-        .cta-btn.primary:hover {
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-secondary);
+            background: rgba(10, 61, 98, 0.6);
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234ecdc4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+        
+        .submit-btn {
             background: var(--gradient-secondary);
             color: var(--dark);
-            transform: translateY(-3px);
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(78, 205, 196, 0.4);
+            margin-top: 20px;
         }
         
-        .cta-btn.secondary {
-            background: transparent;
-            border: 2px solid var(--accent-secondary);
-            color: var(--accent-secondary);
-        }
-        
-        .cta-btn.secondary:hover {
-            background: var(--accent-secondary);
-            color: var(--dark);
-            transform: translateY(-3px);
+        .submit-btn:hover {
+            background: var(--gradient-accent);
+            color: var(--light);
         }
         
         /* Footer */
         footer {
             background: var(--primary-dark);
-            padding: 50px 0 20px;
-            text-align: center;
+            padding: 70px 0 30px;
+            position: relative;
         }
         
         .footer-content {
-            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
         }
         
-        .footer-content h3 {
+        .footer-column h3 {
             font-size: 1.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             color: var(--accent-secondary-light);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--accent);
+            bottom: -8px;
+            left: 0;
+            border-radius: 3px;
         }
         
         .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
         }
         
         .footer-links a {
             color: var(--light);
             text-decoration: none;
             transition: var(--transition);
+            opacity: 0.9;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+        }
+        
+        .footer-links a i {
+            color: var(--accent-secondary);
+            transition: var(--transition);
         }
         
         .footer-links a:hover {
-            color: var(--accent-secondary-light);
-            transform: translateY(-2px);
+            color: var(--accent-light);
+            opacity: 1;
         }
         
         .social-links {
             display: flex;
-            justify-content: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-top: 20px;
         }
         
         .social-links a {
@@ -679,16 +600,18 @@
         .social-links a:hover {
             background: var(--gradient-accent);
             color: var(--light);
-            transform: translateY(-3px) scale(1.1);
         }
         
         .copyright {
-            padding-top: 20px;
+            text-align: center;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.15);
             opacity: 0.7;
+            position: relative;
+            z-index: 2;
         }
         
-        /* Animations */
+        /* Animation Effects */
         .animate {
             opacity: 0;
             transform: translateY(30px);
@@ -704,61 +627,44 @@
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
         .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
         
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .nav-links {
-                gap: 20px;
-            }
-            
-            .nav-links a {
-                font-size: 0.95rem;
-                padding: 8px 12px;
-            }
+        /* Дополнительные разделы */
+        #services, #prices {
+            background: var(--primary-dark);
+            padding: 100px 0;
+            text-align: center;
+            font-size: 2rem;
+            color: var(--accent-secondary-light);
         }
-
+        
+        .section-title h2 {
+            color: var(--accent-secondary-light);
+        }
+        
+        /* Mobile Responsiveness */
         @media (max-width: 992px) {
-            .page-header h1 {
+            .hero-content h1 {
                 font-size: 3rem;
             }
             
-            .nav-links {
-                gap: 15px;
-            }
-            
-            .nav-links a {
-                font-size: 0.9rem;
-                padding: 8px 10px;
-            }
-            
-            .contact-btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .promotions-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .header-utp {
+                display: none;
             }
         }
         
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 0;
+                top: 80px;
                 right: -100%;
-                background: linear-gradient(135deg, var(--primary-dark), var(--dark));
+                background: var(--primary-dark);
                 width: 100%;
-                height: 100vh;
+                height: calc(100vh - 80px);
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
-                padding: 0;
-                gap: 30px;
+                padding-top: 60px;
                 transition: var(--transition);
-                z-index: 1000;
-                overflow-y: auto;
-                backdrop-filter: blur(20px);
             }
             
             .nav-links.active {
@@ -766,416 +672,345 @@
             }
             
             .nav-links li {
-                margin: 0;
-                width: 80%;
-                text-align: center;
-            }
-            
-            .nav-links a {
-                width: 100%;
-                padding: 20px 30px;
-                font-size: 1.2rem;
-                border-radius: 15px;
-                background: rgba(78, 205, 196, 0.1);
-                border: 1px solid rgba(78, 205, 196, 0.2);
-                justify-content: center;
-                transition: var(--transition);
-            }
-            
-            .nav-links a:hover,
-            .nav-links a.active {
-                background: rgba(78, 205, 196, 0.2);
-                border-color: rgba(78, 205, 196, 0.4);
-                transform: scale(1.05);
-            }
-            
-            .nav-links a i {
-                font-size: 1.1rem;
-                margin-right: 5px;
+                margin: 25px 0;
             }
             
             .mobile-menu {
-                display: flex;
-                z-index: 1002;
-                position: relative;
+                display: block;
             }
             
-            .contact-btn {
-                display: none;
-            }
-            
-            .mobile-phone {
-                display: flex;
-            }
-            
-            .page-header {
-                padding: 120px 0 60px;
-            }
-            
-            .page-header h1 {
+            .hero-content h1 {
                 font-size: 2.5rem;
             }
             
-            .section-title h2 {
-                font-size: 2.3rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .cta-btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .countdown-timer {
-                gap: 15px;
-            }
-            
-            .countdown-item {
-                min-width: 80px;
-                padding: 15px;
-            }
-            
-            nav {
-                padding: 15px 0;
-            }
-            
-            .logo {
+            .hero-content p {
                 font-size: 1.2rem;
             }
             
-            .logo img {
-                height: 35px !important;
+            .hero-btns {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .order-container {
+                padding: 25px;
             }
         }
         
         @media (max-width: 480px) {
-            .page-header h1 {
-                font-size: 2rem;
+            .hero-content h1 {
+                font-size: 2.2rem;
             }
             
-            .page-header p {
-                font-size: 1.1rem;
-            }
-            
-            .mobile-phone {
-                width: 45px;
-                height: 45px;
-            }
-            
-            .mobile-menu {
-                width: 45px;
-                height: 45px;
-            }
-            
-            .mobile-menu i {
-                font-size: 1.3rem;
-            }
-            
-            .promotions-section {
-                padding: 60px 0;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
+            .section {
+                padding: 80px 0;
             }
             
             .promotion-card {
                 padding: 30px 20px;
             }
             
-            .promotion-discount {
-                font-size: 3rem;
-            }
-            
-            .countdown-title {
-                font-size: 2rem;
-            }
-            
-            .countdown-number {
-                font-size: 2rem;
-            }
-            
-            .container {
-                width: 95%;
-                padding: 0 10px;
-            }
-            
-            .logo {
-                font-size: 1.1rem;
-            }
-            
-            .logo img {
-                height: 30px !important;
-                margin-right: 8px !important;
-            }
-            
-            .nav-links a {
-                padding: 15px 25px;
-                font-size: 1.1rem;
+            .header-phone {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Modern Header -->
     <header>
-        <nav class="container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="Чистый Источник" style="height: 40px; margin-right: 10px;">
-                Чистый Источник
-            </a>
-            <div class="nav-center">
-                <ul class="nav-links">
-                    <li><a href="index.html"><i class="fas fa-home"></i>Главная</a></li>
-                    <li><a href="index.html#services"><i class="fas fa-tools"></i>Услуги</a></li>
-                    <li><a href="index.html#about"><i class="fas fa-info-circle"></i>О нас</a></li>
-                    <li><a href="gallery.html"><i class="fas fa-images"></i>Галерея</a></li>
-                    <li><a href="price.html"><i class="fas fa-ruble-sign"></i>Цены</a></li>
-                    <li><a href="promotions.html" class="active"><i class="fas fa-percent"></i>Акции</a></li>
-                    <li><a href="index.html#contact"><i class="fas fa-envelope"></i>Контакты</a></li>
-                </ul>
-            </div>
-            <div class="nav-actions">
-                <a href="tel:+79123456789" class="contact-btn">
-                    <i class="fas fa-phone"></i>
-                    Позвонить
+        <div class="container">
+            <nav>
+                <!-- Логотип с капелькой -->
+                <a href="index.html" class="logo">
+                    <i class="fas fa-tint"></i> <!-- Изменено на капельку -->
+                    <span>Чистый Источник</span>
                 </a>
-                <div class="mobile-phone">
-                    <a href="tel:+79123456789">
-                        <i class="fas fa-phone"></i>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li> <!-- Исправленная ссылка -->
+                    <li><a href="#promotions" class="active">Акции</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#prices">Прайс</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+                
+                <!-- УТП "Срочный выезд" (только для ПК) -->
+                <div class="header-utp">
+                    Срочный выезд
+                </div>
+                
+                <!-- Телефон -->
+                <div class="header-phone">
+                    <a href="tel:+79816666670" class="contact-btn">
+                        <i class="fas fa-phone"></i> +7 (981) 666-66-70
                     </a>
                 </div>
+                
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <div class="page-header-content">
-                    <h1>Акции и скидки</h1>
-                    <p>Выгодные предложения на чистку и обслуживание колодцев</p>
+    <!-- Hero Section -->
+    <section class="promo-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate">Акции и специальные предложения</h1>
+                <p class="animate delay-1">Только до конца месяца! Уникальные условия на профессиональную чистку и ремонт колодцев</p>
+                <div class="hero-btns">
+                    <a href="#promotions" class="btn primary-btn animate delay-2">Смотреть акции</a>
+                    <a href="#order" class="btn secondary-btn animate delay-3">Заказать чистку</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="promotions-section">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Текущие акции</h2>
-                    <p>Не упустите возможность сэкономить на профессиональной чистке колодца</p>
+    <!-- Услуги -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши услуги</h2>
+                <p>Профессиональные решения для вашего колодца</p>
+            </div>
+            <div class="animate">
+                <p>Чистка колодцев, ремонт, дезинфекция и многое другое...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Прайс -->
+    <section class="section" id="prices">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши цены</h2>
+                <p>Прозрачное ценообразование и выгодные условия</p>
+            </div>
+            <div class="animate">
+                <p>Комплексная чистка от 8 000 руб., ремонт от 12 000 руб...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Акции -->
+    <section class="section" id="promotions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ограниченные предложения</h2>
+                <p>Только до конца месяца! Успейте воспользоваться выгодными условиями</p>
+            </div>
+            
+            <div class="promotions-grid">
+                <!-- Акция 1 -->
+                <div class="promotion-card animate">
+                    <div class="promotion-badge">Акция</div>
+                    <div class="promotion-icon">
+                        <i class="fas fa-hand-holding-water"></i>
+                    </div>
+                    <h3>Чистка + дезинфекция</h3>
+                    <p>Комплексная обработка колодца с гарантией качества</p>
+                    
+                    <div class="promotion-price">
+                        12 900 <small>15 900</small> ₽
+                    </div>
+                    
+                    <ul class="promotion-benefits">
+                        <li>Удаление ила и мусора</li>
+                        <li>Дезинфекция безопасными составами</li>
+                        <li>Бесплатный анализ воды</li>
+                        <li>Гарантия 1 год</li>
+                    </ul>
+                    
+                    <a href="#order" class="btn primary-btn">Заказать сейчас</a>
                 </div>
                 
-                <div class="promotions-grid">
-                    <div class="promotion-card hot animate">
-                        <div class="promotion-icon">
-                            <i class="fas fa-fire"></i>
-                        </div>
-                        <h3>Горячее предложение</h3>
-                        <div class="promotion-discount">-40%</div>
-                        <div class="promotion-description">
-                            Комплексная чистка колодца + дезинфекция + гарантия 2 года всего за 7500₽ вместо 12500₽
-                        </div>
-                        <div class="promotion-validity">Действует до 31 января 2025</div>
-                        <a href="tel:+79123456789" class="promotion-btn">Воспользоваться</a>
+                <!-- Акция 2 -->
+                <div class="promotion-card animate delay-1">
+                    <div class="promotion-badge">Выгода</div>
+                    <div class="promotion-icon">
+                        <i class="fas fa-tools"></i>
                     </div>
-
-                    <div class="promotion-card animate delay-1">
-                        <div class="promotion-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>Семейная скидка</h3>
-                        <div class="promotion-discount">-25%</div>
-                        <div class="promotion-description">
-                            При заказе чистки двух и более колодцев на одном участке - скидка 25% на каждый последующий
-                        </div>
-                        <div class="promotion-validity">Постоянная акция</div>
-                        <a href="tel:+79123456789" class="promotion-btn">Заказать</a>
+                    <h3>Ремонт "под ключ"</h3>
+                    <p>Восстановление колодца с 15% скидкой</p>
+                    
+                    <div class="promotion-price">
+                        от 12 750 <small>от 15 000</small> ₽
                     </div>
-
-                    <div class="promotion-card animate delay-2">
-                        <div class="promotion-icon">
-                            <i class="fas fa-gift"></i>
-                        </div>
-                        <h3>Первый раз у нас?</h3>
-                        <div class="promotion-discount">-15%</div>
-                        <div class="promotion-description">
-                            Скидка 15% для новых клиентов на любую услугу. Плюс бесплатная консультация специалиста
-                        </div>
-                        <div class="promotion-validity">Для новых клиентов</div>
-                        <a href="tel:+79123456789" class="promotion-btn">Получить скидку</a>
-                    </div>
-
-                    <div class="promotion-card animate delay-3">
-                        <div class="promotion-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <h3>Сезонное обслуживание</h3>
-                        <div class="promotion-discount">-30%</div>
-                        <div class="promotion-description">
-                            Заключите договор на годовое обслуживание и получите скидку 30% на все работы
-                        </div>
-                        <div class="promotion-validity">Ограниченное предложение</div>
-                        <a href="tel:+79123456789" class="promotion-btn">Узнать подробнее</a>
-                    </div>
-
-                    <div class="promotion-card animate delay-4">
-                        <div class="promotion-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h3>Пенсионерам</h3>
-                        <div class="promotion-discount">-20%</div>
-                        <div class="promotion-description">
-                            Специальная скидка для пенсионеров на все виды услуг. Предъявите пенсионное удостоверение
-                        </div>
-                        <div class="promotion-validity">Постоянная льгота</div>
-                        <a href="tel:+79123456789" class="promotion-btn">Воспользоваться</a>
-                    </div>
-
-                    <div class="promotion-card animate delay-1">
-                        <div class="promotion-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3>Приведи друга</h3>
-                        <div class="promotion-discount">1000₽</div>
-                        <div class="promotion-description">
-                            Приведите друга - получите 1000₽ скидку на следующий заказ. Друг тоже получает скидку 10%
-                        </div>
-                        <div class="promotion-validity">Бессрочная программа</div>
-                        <a href="tel:+79123456789" class="promotion-btn">Участвовать</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="special-offers">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Дополнительные преимущества</h2>
-                    <p>Что вы получаете при работе с нами</p>
+                    
+                    <ul class="promotion-benefits">
+                        <li>Скобирование колец</li>
+                        <li>Гидропломба швов</li>
+                        <li>Укрепление конструкции</li>
+                        <li>Гарантия 3 года</li>
+                    </ul>
+                    
+                    <a href="#order" class="btn primary-btn">Заказать сейчас</a>
                 </div>
                 
-                <div class="offers-container">
-                    <div class="offer-card animate">
-                        <div class="offer-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h4>Гарантия качества</h4>
-                        <p>До 3 лет гарантии на выполненные работы в зависимости от выбранного пакета услуг</p>
+                <!-- Акция 3 -->
+                <div class="promotion-card animate delay-2">
+                    <div class="promotion-badge">Спецпредложение</div>
+                    <div class="promotion-icon">
+                        <i class="fas fa-wind"></i>
                     </div>
-
-                    <div class="offer-card animate delay-1">
-                        <div class="offer-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h4>Быстрый выезд</h4>
-                        <p>Выезжаем в день обращения или в удобное для вас время. Экстренный выезд - в течение 2 часов</p>
+                    <h3>Два колодца по цене одного</h3>
+                    <p>Чистка двух колодцев с максимальной выгодой</p>
+                    
+                    <div class="promotion-price">
+                        16 900 <small>31 800</small> ₽
                     </div>
-
-                    <div class="offer-card animate delay-2">
-                        <div class="offer-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h4>Современное оборудование</h4>
-                        <p>Используем только профессиональное оборудование и экологически безопасные материалы</p>
-                    </div>
-
-                    <div class="offer-card animate delay-3">
-                        <div class="offer-icon">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h4>Опытные мастера</h4>
-                        <p>Все специалисты имеют опыт работы от 5 лет и регулярно проходят повышение квалификации</p>
-                    </div>
+                    
+                    <ul class="promotion-benefits">
+                        <li>Чистка двух колодцев</li>
+                        <li>Дезинфекция каждого</li>
+                        <li>Бесплатный выезд</li>
+                        <li>Скидка 48%</li>
+                    </ul>
+                    
+                    <a href="#order" class="btn primary-btn">Заказать сейчас</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="countdown-section">
-            <div class="container">
-                <div class="countdown-title animate">Горячее предложение заканчивается через:</div>
-                <div class="countdown-subtitle animate delay-1">Не упустите шанс сэкономить 40%!</div>
-                
-                <div class="countdown-timer animate delay-2">
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="days">15</span>
-                        <span class="countdown-label">дней</span>
+    <!-- Уникальные УТП -->
+    <section class="section utp-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши преимущества</h2>
+                <p>Почему клиенты выбирают именно нас</p>
+            </div>
+            
+            <div class="utp-grid">
+                <div class="utp-card animate">
+                    <div class="utp-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="hours">12</span>
-                        <span class="countdown-label">часов</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="minutes">30</span>
-                        <span class="countdown-label">минут</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="seconds">45</span>
-                        <span class="countdown-label">секунд</span>
-                    </div>
+                    <h3>Срочный выезд</h3>
+                    <p>Приедем в течение 2 часов по Москве и области</p>
                 </div>
                 
-                <div class="cta-buttons animate delay-3">
-                    <a href="tel:+79123456789" class="cta-btn primary">
-                        <i class="fas fa-phone"></i>
-                        Заказать со скидкой
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact-cta">
-            <div class="container">
-                <div class="cta-content animate">
-                    <h2>Остались вопросы?</h2>
-                    <p>Наши консультанты помогут выбрать наиболее выгодное предложение для вас</p>
-                    <div class="cta-buttons">
-                        <a href="tel:+79123456789" class="cta-btn primary">
-                            <i class="fas fa-phone"></i>
-                            Позвонить сейчас
-                        </a>
-                        <a href="index.html#contact" class="cta-btn secondary">
-                            <i class="fas fa-envelope"></i>
-                            Написать нам
-                        </a>
+                <div class="utp-card animate delay-1">
+                    <div class="utp-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
+                    <h3>Гарантия 3 года</h3>
+                    <p>На все виды работ по чистке и ремонту колодцев</p>
+                </div>
+                
+                <div class="utp-card animate delay-2">
+                    <div class="utp-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Экологичные материалы</h3>
+                    <p>Используем только безопасные для здоровья составы</p>
+                </div>
+                
+                <div class="utp-card animate delay-3">
+                    <div class="utp-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Бесплатный анализ</h3>
+                    <p>Проверка качества воды после чистки в подарок</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
+    <!-- Форма заказа -->
+    <section class="section order-form-section" id="order">
+        <div class="container">
+            <div class="section-title">
+                <h2>Закажите чистку колодца сейчас</h2>
+                <p>И получите бесплатную диагностику и консультацию специалиста</p>
+            </div>
+            
+            <div class="order-container">
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="order-name">Ваше имя</label>
+                        <input type="text" id="order-name" required placeholder="Иван Иванов">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="order-phone">Телефон</label>
+                        <input type="tel" id="order-phone" required placeholder="+7 (981) 666 66-70">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="order-promo">Выберите акцию</label>
+                        <select id="order-promo" required>
+                            <option value="">Выберите акцию</option>
+                            <option value="cleaning">Чистка + дезинфекция (12 900 ₽)</option>
+                            <option value="repair">Ремонт "под ключ" (от 12 750 ₽)</option>
+                            <option value="two">Два колодца по цене одного (16 900 ₽)</option>
+                            <option value="other">Другая услуга</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="order-message">Дополнительная информация</label>
+                        <textarea id="order-message" placeholder="Опишите проблему с вашим колодцем..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Заказать со скидкой</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacts">
         <div class="container">
             <div class="footer-content">
-                <h3>Чистый Источник</h3>
-                <div class="footer-links">
-                    <a href="index.html"><i class="fas fa-home"></i> Главная</a>
-                    <a href="index.html#services"><i class="fas fa-tools"></i> Услуги</a>
-                    <a href="gallery.html"><i class="fas fa-images"></i> Галерея</a>
-                    <a href="price.html"><i class="fas fa-ruble-sign"></i> Цены</a>
-                    <a href="tel:+79123456789"><i class="fas fa-phone"></i> +7 (912) 345-67-89</a>
+                <div class="footer-column">
+                    <div class="logo">
+                        <i class="fas fa-tint"></i> <!-- Изменено на капельку -->
+                        <span>Чистый Источник</span>
+                    </div>
+                    <p>Профессиональное обслуживание колодцев с гарантией качества. Вернем вашей воде кристальную чистоту!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-vk"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                
+                <div class="footer-column">
+                    <h3>Наши услуги</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Чистка колодцев</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Ремонт колодцев</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Устранение запаха</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Скобирование колец</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Замена насосов</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+79816666670"><i class="fas fa-phone"></i> +7 (981) 666-66-70</a></li>
+                        <li><a href="mailto:info@chistiy-istochnik.ru"><i class="fas fa-envelope"></i> kolodec@wells-mo.ru</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Новый Арбат, д. 15</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Пн-Пт: 8:00 - 20:00</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Чистый Источник. Все права защищены.</p>
+                <p>&copy; 2023 Чистый Источник. Все права защищены.</p>
             </div>
         </div>
     </footer>
@@ -1184,63 +1019,63 @@
         // Mobile menu toggle
         const mobileMenu = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
-
+        const menuIcon = mobileMenu.querySelector('i');
+        
         mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            const icon = mobileMenu.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-            
-            // Prevent body scroll when menu is open
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
         });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
+        
+        // Smooth scrolling with header offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                
+                // Close mobile menu if open
                 navLinks.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                const icon = mobileMenu.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-                document.body.style.overflow = '';
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
+                
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                
+                if (target) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                const icon = mobileMenu.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Header hide/show on scroll
-        let lastScrollTop = 0;
-        const header = document.querySelector('header');
-
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Form submission
+        const orderForm = document.getElementById('orderForm');
+        orderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
             
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                header.classList.add('hidden');
-            } else {
-                header.classList.remove('hidden');
-            }
-            lastScrollTop = scrollTop;
+            // Get form values
+            const name = document.getElementById('order-name').value;
+            const phone = document.getElementById('order-phone').value;
+            const promo = document.getElementById('order-promo').value;
+            
+            // Show success message
+            alert(`Спасибо, ${name}! Мы свяжемся с вами по номеру ${phone} в ближайшее время для подтверждения заказа по акции "${promo}".`);
+            
+            // Reset form
+            orderForm.reset();
         });
-
-        // Animate elements on scroll
+        
+        // Animation on scroll
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.1
         };
-
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1248,40 +1083,10 @@
                 }
             });
         }, observerOptions);
-
+        
         document.querySelectorAll('.animate').forEach(el => {
             observer.observe(el);
         });
-
-        // Countdown timer
-        function updateCountdown() {
-            const endDate = new Date('2025-01-31T23:59:59').getTime();
-            const now = new Date().getTime();
-            const timeLeft = endDate - now;
-
-            if (timeLeft > 0) {
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-                document.getElementById('days').textContent = days;
-                document.getElementById('hours').textContent = hours;
-                document.getElementById('minutes').textContent = minutes;
-                document.getElementById('seconds').textContent = seconds;
-            } else {
-                // Если время истекло, показываем нули
-                document.getElementById('days').textContent = 0;
-                document.getElementById('hours').textContent = 0;
-                document.getElementById('minutes').textContent = 0;
-                document.getElementById('seconds').textContent = 0;
-            }
-        }
-
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
     </script>
 </body>
 </html>
-
