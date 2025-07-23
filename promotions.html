@@ -728,39 +728,37 @@
 <body>
     <!-- Modern Header -->
     <header>
-        <div class="container">
-            <nav>
-                <!-- Логотип с капелькой -->
-                <a href="index.html" class="logo">
-                    <i class="fas fa-tint"></i> <!-- Изменено на капельку -->
-                    <span>Чистый Источник</span>
-                </a>
-                
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Чистый Источник" style="height: 40px; margin-right: 10px;">
+                Чистый Источник
+            </a>
+            <div class="nav-center">
                 <ul class="nav-links">
-                    <li><a href="index.html">Главная</a></li> <!-- Исправленная ссылка -->
-                    <li><a href="#promotions" class="active">Акции</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#prices">Прайс</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i>Главная</a></li>
+                    <li><a href="index.html#services"><i class="fas fa-tools"></i>Услуги</a></li>
+                    <li><a href="index.html#about"><i class="fas fa-info-circle"></i>О нас</a></li>
+                    <li><a href="gallery.html"><i class="fas fa-images"></i>Галерея</a></li>
+                    <li><a href="price.html"><i class="fas fa-ruble-sign"></i>Цены</a></li>
+                    <li><a href="promotions.html" class="active"><i class="fas fa-percent"></i>Акции</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-envelope"></i>Контакты</a></li>
                 </ul>
-                
-                <!-- УТП "Срочный выезд" (только для ПК) -->
-                <div class="header-utp">
-                    Срочный выезд
-                </div>
-                
-                <!-- Телефон -->
-                <div class="header-phone">
-                    <a href="tel:+79816666670" class="contact-btn">
-                        <i class="fas fa-phone"></i> +7 (981) 666-66-70
+            </div>
+            <div class="nav-actions">
+                <a href="tel:+79123456789" class="contact-btn">
+                    <i class="fas fa-phone"></i>
+                    Позвонить
+                </a>
+                <div class="mobile-phone">
+                    <a href="tel:+79123456789">
+                        <i class="fas fa-phone"></i>
                     </a>
                 </div>
-                
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
