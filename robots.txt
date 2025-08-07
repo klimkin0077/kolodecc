@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# Основные страницы
+Allow: /index.html
+Allow: /about.html
+Allow: /gallery.html
+Allow: /price.html
+Allow: /promotions.html
+
+# Статические ресурсы
+Allow: /*.css
+Allow: /*.js
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
+
+# Запрещаем индексацию служебных файлов
+Disallow: /.htaccess
+Disallow: /contact_handler.php
+
+# Карта сайта
+Sitemap: https://wells-mo.ru/sitemap.xml
+
